@@ -92,7 +92,7 @@ menu: nav/rate_and_relate.html
     position: fixed;            
     top: 50%;                   
     left: 50%;                
-    transform: translate(-50%, -30%);
+    transform: translate(-50%, -50%);
     background-color: #FBC3C3;
     padding: 20px;
     border: 1px solid #ccc;
@@ -147,7 +147,7 @@ menu: nav/rate_and_relate.html
 </div>
 
 <div class="upload_box">
-    <button class="toggle-button" onclick="toggleDiv()">Camera</button> <br>
+    <img class="toggle-button" onclick="toggleDiv()" src="{{site.baseurl}}/images/upload_imagebutton.png" width= 500> <br>
     <text class="content-div"></text>
     <label for="textInput">Enter caption:</label>
     <input type="text" id="textInput" placeholder="Type something...">
