@@ -115,7 +115,7 @@ menu: nav/rate_and_relate.html
 }
 
 .upload_box .exit-button {
-   transform: translateX(125px) translateY(-100px);
+   transform: translateX(200px) translateY(-535px);
 }
 
 </style>
