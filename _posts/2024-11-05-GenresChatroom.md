@@ -1,6 +1,7 @@
 ---
 toc: true
 layout: post
+description: Select A Channel and Start Discussing!
 title: Voting Chatroom
 permalink: /chatroom
 comments: true
@@ -19,11 +20,11 @@ comments: true
             padding: 20px;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: center !important;
         }
 
         .container {
-            width: 80%;
+            width: 300%;
             max-width: 800px;
         }
 
@@ -33,10 +34,11 @@ comments: true
         }
 
         .card {
-            background-color: #2e3a4d;
+            background-color: pink;
             border-radius: 10px;
             padding: 20px;
             margin-bottom: 20px;
+            margin-right: 200px;
         }
 
         .card h2 {
@@ -72,7 +74,7 @@ comments: true
         }
 
         .post-item {
-            background-color: #3a4c67;
+            background-color: #DE3163;
             border-radius: 10px;
             padding: 15px;
             margin-bottom: 20px;
@@ -121,12 +123,12 @@ comments: true
 
             <label for="channel">Channel:</label>
             <select id="channel">
-                <option value="Pop">Pop</option>
-                <option value="Rock">Rock</option>
-                <option value="Jazz">Jazz</option>
-                <option value="Electronic">Electronic</option>
-                <option value="Hip-Hop">Hip-Hop</option>
-                <option value="Classical">Classical</option>
+                <option value="The Weeknd or Lana Del Rey">The Weeknd or Lana Del Rey</option>
+                <option value="The Rolling stones or Guns N' Roses">The Rolling stones or Guns N' Roses</option>
+                <option value="Ella Fitzgerald or Billie Holiday">Ella Fitzgerald or Billie Holiday</option>
+                <option value="Calvin Harris or Alan Walker">Calvin Harris or Alan Walker</option>
+                <option value="Drake or Kanye West">Drake or Kanye West</option>
+                <option value="Mozart or Beethoven">Mozart or Beethoven</option>
             </select>
 
             <button class="button" onclick="loadPosts()">Select</button>

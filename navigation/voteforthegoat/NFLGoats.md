@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Vote for the GOATs of the NFL
-description: Vote for the GOATs of the NFL
+description: Made By Noah H, James E, and Zafeer A
 permalink: /voteforthegoat/nflgoats
 comments: true
 ---
@@ -11,7 +11,7 @@ comments: true
 
 This site allows you to vote for your favorite football players and engage in discussions. You can express your preferences on who you believe is the greatest of all time. After voting, feel free to leave comments and debate your selections with others!
 
-There are five different polls where you vote for the greatest Quarterback, Wide Receiver, Defensive Player, Running Back, and NFL Division of all time. Each player (or division) has their own digitally crafted card with a picture and statistics from their career. Underneath their card is a button that says vote, which will cast your vote for that player (or division).
+There are five different polls where you vote for the greatest Quarterback, Wide Receiver, Defensive Player, Running Back, and NFL Division of all time. Each player (or division) has their own digitally crafted card with a picture and statistics from their career. You vote for the player by clicking on the card, then there should be a section below that allows you to submit a comment along with a username.
 
 
 ## Quarterback Voting
@@ -285,7 +285,7 @@ There are five different polls where you vote for the greatest Quarterback, Wide
   </div>
   
   <div style="width: 30%; text-align: center; margin-bottom: 20px;" onclick="selectPlayer('Ray Lewis', 'DP')">
-    <img src="{{site.baseurl}}/images/nfl-icons/Defensive Playersceivers/Ray_Lewis.png" alt="Ray Lewis" style="width: 100%;">
+    <img src="{{site.baseurl}}/images/nfl-icons/Defensive Players/Ray_Lewis.png" alt="Ray Lewis" style="width: 100%;">
   </div>
   
   <div style="width: 30%; text-align: center; margin-bottom: 20px;" onclick="selectPlayer('Ed Reed', 'DP')">
@@ -404,32 +404,32 @@ There are five different polls where you vote for the greatest Quarterback, Wide
     <img src="{{site.baseurl}}/images/nfl-icons/Running Backs/Marshall_Faulk.png" alt="Marshall Faulk" style="width: 100%;">
   </div>
   
-  <div style="width: 30%; text-align: center; margin-bottom: 20px;" onclick="selectPlayer('O.J. Simpson', 'RB')">
-    <img src="{{site.baseurl}}/images/nfl-icons/Running Backs/OJ_Simpson.png" alt="O.J. Simpson" style="width: 100%;">
-  </div>
-  
   <div style="width: 30%; text-align: center; margin-bottom: 20px;" onclick="selectPlayer('Adrian Peterson', 'RB')">
     <img src="{{site.baseurl}}/images/nfl-icons/Running Backs/Adrian_Peterson.png" alt="Adrian Peterson" style="width: 100%;">
+  </div>
+  
+  <div style="width: 30%; text-align: center; margin-bottom: 20px;" onclick="selectPlayer('LaDainian Tomlinson', 'RB')">
+    <img src="{{site.baseurl}}/images/nfl-icons/Running Backs/LaDainian_Tomlinson.png" alt="LaDainian Tomlinson" style="width: 100%;">
   </div>
   
   <div style="width: 30%; text-align: center; margin-bottom: 20px;" onclick="selectPlayer('Frank Gore', 'RB')">
     <img src="{{site.baseurl}}/images/nfl-icons/Running Backs/Frank_Gore.png" alt="Frank Gore" style="width: 100%;">
   </div>
   
-  <div style="width: 30%; text-align: center; margin-bottom: 20px;" onclick="selectPlayer('Tiki Barber', 'RB')">
-    <img src="{{site.baseurl}}/images/nfl-icons/Running Backs/Tiki_Barber.png" alt="Tiki Barber" style="width: 100%;">
+  <div style="width: 30%; text-align: center; margin-bottom: 20px;" onclick="selectPlayer('Curtis Martin', 'RB')">
+    <img src="{{site.baseurl}}/images/nfl-icons/Running Backs/Curtis_Martin.png" alt="Curtis Martin" style="width: 100%;">
   </div>
   
-  <div style="width: 30%; text-align: center; margin-bottom: 20px;" onclick="selectPlayer('Joe Perry', 'RB')">
-    <img src="{{site.baseurl}}/images/nfl-icons/Running Backs/Joe_Perry.png" alt="Joe Perry" style="width: 100%;">
+  <div style="width: 30%; text-align: center; margin-bottom: 20px;" onclick="selectPlayer('Jerome Bettis', 'RB')">
+    <img src="{{site.baseurl}}/images/nfl-icons/Running Backs/Jerome_Bettis.png" alt="Jerome Bettis" style="width: 100%;">
   </div>
   
   <div style="width: 30%; text-align: center; margin-bottom: 20px;" onclick="selectPlayer('Tony Dorsett', 'RB')">
     <img src="{{site.baseurl}}/images/nfl-icons/Running Backs/Tony_Dorsett.png" alt="Tony Dorsett" style="width: 100%;">
   </div>
   
-  <div style="width: 30%; text-align: center; margin-bottom: 20px;" onclick="selectPlayer('Gale Sayers', 'RB')">
-    <img src="{{site.baseurl}}/images/nfl-icons/Running Backs/Gale_Sayers.png" alt="Gale Sayers" style="width: 100%;">
+  <div style="width: 30%; text-align: center; margin-bottom: 20px;" onclick="selectPlayer('Marshawn Lynch', 'RB')">
+    <img src="{{site.baseurl}}/images/nfl-icons/Running Backs/Marshawn_Lynch.png" alt="Marshawn Lynch" style="width: 100%;">
   </div>
 </div>
 
@@ -439,7 +439,7 @@ There are five different polls where you vote for the greatest Quarterback, Wide
     <h3>Leave a Comment (Running Backs):</h3>
     <input type="text" id="usernameInputRB" placeholder="Enter your username" style="width: 80%; padding: 8px; margin-bottom: 5px;">
     <input type="text" id="commentInputRB" placeholder="Enter your comment" style="width: 80%; padding: 8px;">
-    <button onclick="addComment('Rb');" class="comment-button">Submit</button>
+    <button onclick="addComment('RB');" class="comment-button">Submit</button>
     <div class="comment-list" id="commentListRB" style="margin-top: 10px;"></div>
 </div>
 
@@ -473,6 +473,7 @@ There are five different polls where you vote for the greatest Quarterback, Wide
 
 ## NFL Divisions Votings
 
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
   <div style="width: 30%; text-align: center; margin-bottom: 20px;" onclick="selectPlayer('NFC North', 'D')">
     <img src="{{site.baseurl}}/images/nfl-icons/Divisions/NFC_North.png" alt="NFC North" style="width: 100%;">
   </div>

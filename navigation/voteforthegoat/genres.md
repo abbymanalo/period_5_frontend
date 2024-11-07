@@ -5,7 +5,76 @@ description: Pick Your Favorite Genre Out of These!
 permalink: /voteforthegoat/genres/
 comments: true
 ---
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup Example</title>
+    <style>
+                
+        /* Style for the modal */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Overlay effect */
+        }
+       
+        .popup-content {
+            background-color: black;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 60%; /* Reduce width (change this value to make it smaller or larger) */
+            max-width: 500px;
+            text-align: left;
+            font-family: Georgia, 'Times New Roman', Times, serif; /* Set font to Georgia */
+            border-radius: 8px;
+        }
 
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="rules-popup" class="modal">
+    <div class="popup-content">
+        <h2>Moderator Rules and Guidelines</h2>
+        <ul>
+            <li>Be Respectful: Respect differences in opinions and approach conversations with an open mind. Be prepared to encounter opinions that differ from yours and treat them with the same respect you hope to see for yourself.</li>
+            <li>Be Inclusive: Engage in conversations with everyone, find people with common interests, and connect with your peers.</li>
+            <li>Be School Appropriate: No profanity, inappropriate language, or offensive language. Remember to stay professional and true to the topic of conversation. Stay on topic and only comment if your comment will positively contribute to the conversation.</li>
+        </ul>
+        <button id="acknowledge-rules">I have read and acknowledged the rules</button>
+    </div>
+</div>
+
+<script type="module">
+    // JavaScript to show the popup on load and hide it on button click
+    document.addEventListener('DOMContentLoaded', function() {
+        const modal = document.getElementById('rules-popup');
+        const acknowledgeButton = document.getElementById('acknowledge-rules');
+
+        // Show the modal when the page loads
+        modal.style.display = 'block';
+
+        // Hide the modal when the button is clicked
+        acknowledgeButton.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+    });
+</script>
+
+</body>
+</html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">

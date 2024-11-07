@@ -4,6 +4,40 @@ title: DNHS Cafe Store
 description: Purchase coffee using your d'nero you earned from helping!
 permalink: /dnhscafestore/
 ---
+<style>
+body { 
+    background: linear-gradient(135deg, #a17a64, #452f22); /* Dark brown to light brown */
+    background-attachment: fixed; /* Keeps background fixed */
+    color: #333333; /* Darker text color for better readability */
+    font-family: Arial, sans-serif; 
+    min-height: 100vh; /* Ensures it covers the viewport height */ 
+    margin: 0; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.collapsible {
+  background-color: #825B41;
+  color: #ffff;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+.active, .collapsible:hover {
+  background-color: #825B41;
+}
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #AB8265;
+}
+</style>
 
 # ☕ Welcome to DNHS Cafe
 

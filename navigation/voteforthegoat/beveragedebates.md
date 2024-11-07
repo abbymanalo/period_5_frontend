@@ -168,26 +168,22 @@ Our group has chosen to focus on discussions about which drinks should be added 
             position: sticky;
             top: 20px;
         }
-
         .beverage-details img {
             max-width: 200px;
             border-radius: 8px;
             margin: 10px 0;
         }
-
         .beverage-details p {
             font-size: 14px;
             line-height: 1.4;
             color: #ffffff;
         }
-
         /* Add new styles for the layout */
         .voting-layout {
             display: flex;
             gap: 20px;
             justify-content: space-between;
         }
-
         .options-container {
             flex: 0 0 40%;
             display: flex;
@@ -195,28 +191,23 @@ Our group has chosen to focus on discussions about which drinks should be added 
             gap: 20px;
             align-items: center;
         }
-
         .details-container {
             flex: 0 0 55%;
             position: relative;
         }
-
         nav a:hover, .DNHS-title:hover {
             background: rgba(0, 0, 0, 0.7);
             color: #00e6ff;
             transform: scale(1.05);
         }
-
         .nav-container {
             border-bottom: 2px solid #00c6ff;
             background: transparent;
         }
-
         .header-container {
             background: transparent;
             padding: 20px;
         }
-
         /* Style for the DNHS Flocker title */
         .header-title, 
         h1, 
@@ -228,14 +219,12 @@ Our group has chosen to focus on discussions about which drinks should be added 
             text-decoration: none;
             transition: all 0.3s ease;
         }
-
         .header-title:hover,
         h1:hover,
         .DNHS-title:hover {
             transform: scale(1.1);
             text-shadow: 0 4px 8px rgba(255, 138, 0, 0.3);
         }
-
         .modal {
             display: none; /* Hidden by default */
             position: fixed;
@@ -246,7 +235,6 @@ Our group has chosen to focus on discussions about which drinks should be added 
             height: 100%;
             background-color: rgba(0, 0, 0, 0.8);
         }
-
         .modal-content {
             background-color: #333;
             margin: 15% auto;
@@ -257,7 +245,6 @@ Our group has chosen to focus on discussions about which drinks should be added 
             color: #fff;
             text-align: center;
         }
-
         #closeModal {
             background-color: #00c6ff;
             color: #fff;
@@ -267,27 +254,62 @@ Our group has chosen to focus on discussions about which drinks should be added 
             cursor: pointer;
             margin-top: 20px;
         }
-
         #closeModal:hover {
             background-color: #00e6ff;
         }
     </style>
-</head>
-<body>
+        <!-- Community Guidelines Modal -->
     <div id="guidelinesModal" class="modal">
         <div class="modal-content">
-            <h2>Community Rules/Guidelines</h2>
+            <h2>Community Guidelines</h2>
+            <p>Welcome to the Beverage Debates! To maintain a respectful and productive discussion, please adhere to the following guidelines:</p>
             <ul>
-                <li>Be Respectful: Keep things light and friendly.</li>
-                <li>Keep it Family-Friendly: Use clean language.</li>
-                <li>Stay On-Topic: Focus on the debate question.</li>
-                <li>Vote Honestly: Vote once per debate.</li>
-                <li>One Account Only: Just one account per person.</li>
+                <li>Be respectful of others' opinions.</li>
+                <li>Refrain from using offensive language.</li>
+                <li>Focus on constructive feedback and sharing your preferences.</li>
+                <li>Stay on topic and avoid unrelated discussions.</li>
             </ul>
-            <button id="closeModal">I have read and acknowledged the rules</button>
+            <button id="closeModal">I Agree</button>
         </div>
     </div>
-
+<style>
+    /* Updated styles with purple gradient background and orange text/button */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+    .modal-content {
+        background: linear-gradient(135deg, #4b0082, #6a0dad); /* Purple gradient background */
+        margin: 15% auto;
+        padding: 20px;
+        width: 80%;
+        max-width: 600px;
+        border-radius: 10px;
+        text-align: center;
+        color: white; /* Default color as fallback */
+    }
+    #closeModal {
+        background: linear-gradient(135deg, #FFA500, #FF4500); /* Orange gradient button */
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+        font-size: 16px;
+        transition: background 0.3s ease;
+    }
+    #closeModal:hover {
+        background: linear-gradient(135deg, #FF4500, #FFA500); /* Reverse gradient on hover */
+    }
+</style>
+</head>
     <div class="voting-container">
         <h2>Choose Your Beverage that you would like to be added to Del Norte Cafeteria</h2>
         <div class="voting-layout">
@@ -301,23 +323,19 @@ Our group has chosen to focus on discussions about which drinks should be added 
                 <input type="text" id="suggestionInput" placeholder="Suggest a new beverage" style="margin-top: 20px; padding: 10px; border-radius: 8px; border: 1px solid #00c6ff; background: rgba(255, 255, 255, 0.2); color: #ffffff; font-size: 16px; outline: none;">
                 <button class="submit-button" onclick="submitSuggestion()">Submit Suggestion</button>
             </div>
-            
             <div class="details-container">
                 <div id="coke-details" class="beverage-details">
                     <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29rZXxlbnwwfHwwfHx8MA%3D%3D" alt="Coca Cola">
                     <p>Ingredients: Carbonated Water, High Fructose Corn Syrup, Caramel Color, Phosphoric Acid, Natural Flavors, Caffeine</p>
                 </div>
-
                 <div id="gatorade-details" class="beverage-details">
                     <img src="https://www.kroger.com/product/images/large/right/0005200012324" alt="Gatorade">
                     <p>Ingredients: Water, Sugar, Dextrose, Citric Acid, Natural and Artificial Flavor, Salt, Sodium Citrate, Monopotassium Phosphate, Modified Food Starch, Red 40</p>
                 </div>
-
                 <div id="banana-milk-details" class="beverage-details">
                     <img src="https://m.media-amazon.com/images/I/6177MtlTnkL.jpg" alt="Banana Milk">
                     <p>Ingredients: Milk, Banana Puree, Sugar, Natural Flavors, Vitamins A & D</p>
                 </div>
-
                 <div id="coconut-water-details" class="beverage-details">
                     <img src="https://pics.walgreens.com/prodimg/476175/450.jpg" alt="Coconut Water">
                     <p>Ingredients: 100% Natural Coconut Water, No Added Sugar or Preservatives</p>
@@ -333,27 +351,21 @@ Our group has chosen to focus on discussions about which drinks should be added 
     </div>
     <script>
         let selectedBeverage = null;
-        
         function hideAllDetails() {
             const details = document.querySelectorAll('.beverage-details');
             details.forEach(detail => detail.style.display = 'none');
         }
-
         function selectOption(beverage) {
             selectedBeverage = beverage;
             document.getElementById('selectedOption').textContent = 'Your Choice: ' + beverage;
-            
             // Hide all details first
             hideAllDetails();
-            
             // Show details for selected beverage
             const detailsId = beverage.toLowerCase().replace(' ', '-') + '-details';
             document.getElementById(detailsId).style.display = 'block';
         }
-
         function submitVote() {
             if (selectedBeverage) {
-                alert('Thank you for voting for ' + selectedBeverage + '!');
                 // Show the reasoning input section
                 document.getElementById('reasoningContainer').style.display = 'block';
             } else {
@@ -363,39 +375,80 @@ Our group has chosen to focus on discussions about which drinks should be added 
         function submitReasoning() {
             const reasoning = document.getElementById('reasoningText').value;
             if (reasoning.trim()) {
-                alert('Thank you for sharing your reasoning: ' + reasoning);
-                // Hide the reasoning input section after submission
-                document.getElementById('reasoningContainer').style.display = 'none';
-                document.getElementById('reasoningText').value = ''; // Clear the text area
+                // Send vote and reasoning to backend
+                fetch('http://127.0.0.1:8887/api/vote', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        beverage: selectedBeverage,
+                        reasoning: reasoning
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert('Thank you for voting and sharing your reasoning!');
+                    // Hide the reasoning input section after submission
+                    document.getElementById('reasoningContainer').style.display = 'none';
+                    document.getElementById('reasoningText').value = ''; // Clear the text area
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('There was an error submitting your vote. Please try again.');
+                });
             } else {
                 alert('Please enter a reasoning before submitting.');
             }
         }
-
         function submitSuggestion() {
             const suggestion = document.getElementById('suggestionInput').value;
             if (suggestion.trim()) {
-                alert('Thank you for your suggestion: ' + suggestion);
-                document.getElementById('suggestionInput').value = ''; // Clear the input field
+                // Send suggestion to backend
+                fetch('http://127.0.0.1:8887/api/suggest', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        suggestion: suggestion
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert('Thank you for your suggestion!');
+                    document.getElementById('suggestionInput').value = ''; // Clear the input field
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('There was an error submitting your suggestion. Please try again.');
+                });
             } else {
                 alert('Please enter a suggestion before submitting.');
             }
         }
-
+        function showResults() {
+            fetch('http://127.0.0.1:8887/api/results')
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Current voting results:', data);
+                    // You can add code here to display the results on the page
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
         document.addEventListener("DOMContentLoaded", function() {
             const modal = document.getElementById("guidelinesModal");
             const closeModal = document.getElementById("closeModal");
-
             // Show the modal on page load
             modal.style.display = "block";
-
             // Close the modal when the button is clicked
             closeModal.onclick = function() {
                 modal.style.display = "none";
             }
         });
     </script>
-</body>
 </html>
 
 
