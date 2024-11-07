@@ -111,7 +111,7 @@ menu: nav/rate_and_relate.html
 }
 
 .upload_box .post-button {
-   transform: translateX(150px)
+   transform: translateX(240px)
 }
 
 .upload_box .exit-button {
