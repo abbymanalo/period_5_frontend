@@ -4,7 +4,7 @@ title: Levelone
 search_exclude: true
 permalink: /levelone/
 ---
-# 🔐 **Cipher Challenge: Level 1**
+# 🔐 **Level 1: Beginner 🌱**
 
 Welcome to **Level 1** of the Cipher Challenge! 🧩 Start here to warm up your code-breaking skills with a classic substitution cipher.
 
@@ -131,7 +131,7 @@ This is a basic chat box rendered with HTML inside Markdown.
   }
 
   function nextLevel() {
-    window.location.href = '/next-level-url'; 
+    window.location.href = '/flocker_frontend/leveltwo/'; 
   }
   
   sendButton.addEventListener('click', submitAnswer);

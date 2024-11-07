@@ -132,8 +132,9 @@ author: Aadi, Aaditya, Aditya, Kanhay
         <!-- Instabox chatbox -->
         <div class="instabox-box">
             <h2>Instabox 💬</h2>
-            <div class="instabox" id="instabox">
-                <p>You have no system messages.</p>
+            <div class="instabox" id="chat-messages">
+                <p>Chat Messages: </p>
+                <div id="messages-container"></div>
             </div>
             <br>
             <div class="chatinput" id="chatinput" contenteditable="true"></div>
@@ -215,3 +216,26 @@ author: Aadi, Aaditya, Aditya, Kanhay
         });
     </script>
 </body>
+
+
+<script>
+// fetch and display chat messages
+function fetchMessages() {
+    fetch('http://localhost:8887/api/messages') // fetch
+        .then(response => response.json())
+        .then(data => {
+            const messagesContainer = document.getElementById('messages-container'); //in the id defined earlier
+            messagesContainer.innerHTML = '';
+
+            data.messages.forEach(message => { // for loop to have divs for messages, organized??? <-- we will check with aadi bhat and kanhay patil :)
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('message');
+                messageDiv.textContent = message;
+                messagesContainer.appendChild(messageDiv); // add to messages container
+            });
+        });
+}
+
+
+window.onload = fetchMessages; // use and run the script
+</script>

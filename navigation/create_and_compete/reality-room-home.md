@@ -3,168 +3,374 @@ layout: base
 title: Create and Compete - Reality Room
 search_exclude: true
 permalink: /create_and_compete/realityroom-home
+menu: nav/create_and_compete.html
 author: Yash, Nikhil, Rohan, Neil
 ---
 
-TEMPORARY LINK TO CHATROOM PAGE: [link]({{site.baseurl}}/create_and_compete/realityroom)
-
-<div class="form-container">
-    <h2>Add New Post</h2>
-    <form id="postForm">
-        <label for="title" class="label">Title:</label> <br>
-        <input type="text" id="title" name="title" required> <br>
-        <label for="content" class="label">Content:</label>
-        <textarea id="content" name="content" required></textarea>
-        <button type="submit">Add Post</button>
-    </form>
+<div class="sidebar">
+    <a href="/flocker_frontend/create_and_compete/realityroom-home" class="sidebar-btn">🏠 Home</a>
+    <a href="/flocker_frontend/create_and_compete/reality_game" class="sidebar-btn">🎮 Game</a>
+    <a href="/flocker_frontend/create_and_compete/reality-room-about" class="sidebar-btn">❓ About</a>
+    <a href="/flocker_frontend/create_and_compete/reality-room-terms" class="sidebar-btn">📄 Terms</a>
 </div>
 
-<div id="posts"></div>
+<div class="main">
+    <div id="sidebar"></div>
+    <div class="content">
+        <h2>Channels</h2>
+        <div class="friends-container">
+            <div class="friend">
+                <div class="profile-pic"><img src="https://plus.unsplash.com/premium_photo-1671656349322-41de944d259b?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Irma"></div>
+                <p>Irma</p>
+                <span class="live-badge">Live</span>
+            </div>
+            <div class="friend">
+                <div class="profile-pic"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Amanda"></div>
+                <p>Amanda</p>
+            </div>
+            <div class="friend">
+                <div class="profile-pic"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Luiz"></div>
+                <p>Luiz</p>
+            </div>
+            <div class="friend">
+                <div class="profile-pic"><img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=2960&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Adam"></div>
+                <p>Nina</p>
+            </div>
+            <div class="friend">
+                <div class="profile-pic"><img src="https://images.unsplash.com/photo-1496672254107-b07a26403885?q=80&w=2788&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Irma"></div>
+                <p>Izaa</p>
+            </div>
+            <div class="friend">
+                <div class="profile-pic"><img src="https://plus.unsplash.com/premium_photo-1671656349322-41de944d259b?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Irma"></div>
+                <p>Irma</p>
+                <span class="live-badge">Live</span>
+            </div>
+            <div class="friend">
+                <div class="profile-pic"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Amanda"></div>
+                <p>Amanda</p>
+            </div>
+            <div class="friend">
+                <div class="profile-pic"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Luiz"></div>
+                <p>Luiz</p>
+            </div>
+            <div class="friend">
+                <div class="profile-pic"><img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=2960&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Adam"></div>
+                <p>Nina</p>
+            </div>
+            <div class="friend">
+                <div class="profile-pic"><img src="https://images.unsplash.com/photo-1496672254107-b07a26403885?q=80&w=2788&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Irma"></div>
+                <p>Izaa</p>
+            </div>
+           <div class="friend">
+                <div class="profile-pic"><img src="https://plus.unsplash.com/premium_photo-1671656349322-41de944d259b?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Irma"></div>
+                <p>Irma</p>
+                <span class="live-badge">Live</span>
+            </div>
+            <div class="friend">
+                <div class="profile-pic"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Amanda"></div>
+                <p>Amanda</p>
+            </div>
+            <div class="friend">
+                <div class="profile-pic"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Luiz"></div>
+                <p>Luiz</p>
+            </div>
+            <div class="friend">
+                <div class="profile-pic"><img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=2960&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Adam"></div>
+                <p>Nina</p>
+            </div>
+            <div class="friend">
+                <div class="profile-pic"><img src="https://images.unsplash.com/photo-1496672254107-b07a26403885?q=80&w=2788&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Irma"></div>
+                <p>Izaa</p>
+            </div>
+        </div>
+        <div class="form-container">
+            <form id="channelForm">
+                <div class="form-inputs">
+                    <input type="text" id="title" name="title" placeholder="Enter Title Here" required>
+                    <input type="file" id="fileInput" name="fileInput" style="display: none;">
+                    <button type="button" onclick="document.getElementById('fileInput').click()" class="file-button">➕</button>
+                </div>
+                <textarea id="textArea" name="textArea" placeholder="Post Here" required></textarea>
+                <button type="submit">Post</button>
+            </form>
+        </div>
+        <div id="channels"></div>
+    <div>
+</div>
 
 <style>
-    #posts {
-        display: inline-grid;
+    /* Sidebar */
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 150px;
+        height: 100%;
+        background-color: #121212 !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+        color: white;
+        border-right: 1px solid gray;
     }
-    .card {
-        width: 300px;
+    .sidebar-btn {
+        background-color: #121212;
+        color: white !important;
+        border: 2px solid gray;
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 8px;
+        font-size: 16px;
+        width: 120px;
+        text-align: center;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .main {
+        display: flex;
+    }
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        /* padding-left: 180px; */
+    }
+
+    .friends-container {
+        display: flex;
+        overflow-x: auto; /* horizontal scrolling */
+        padding: 10px;
+        margin-bottom: 10px;
+        margin-top: 20px;
+        gap: 10px; 
+        scrollbar-width: thin;
+        scrollbar-color: #ccc transparent; /* Color for scrollbar */
+        width: 750px;
+    }
+
+    .friend {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        width: 80px; /* Set a width for each profile card */
+        text-align: center;
+        font-family: Arial, sans-serif;
+    }
+
+    .profile-pic {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%; /* Makes the image round */
+        overflow: hidden;
+        border: 2px solid #ddd;
+    }
+
+    .profile-pic img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .friend p {
+        margin: 5px 0 0;
+        font-size: 14px;
+        color: #333;
+    }
+
+    .live-badge {
+        position: absolute;
+        top: -5px;
+        left: 15px;
+        background-color: #000;
+        color: #fff;
+        font-size: 12px;
+        padding: 2px 6px;
+        border-radius: 12px;
+        font-weight: bold;
+    }
+
+    /* Form Styling */
+    .form-container {
         padding: 20px;
-        background-color: white;
+        background-color: #f4f4f4;
+        border-radius: 12px;
+        width: calc(100% - 400px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        font-family: Arial, sans-serif;
+    }
+
+    .form-inputs {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+
+    #title {
+        flex: 1;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        font-size: 16px;
+    }
+
+    .file-button {
+        padding: 10px;
+        background-color: #333;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        font-size: 18px;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #textArea {
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        font-size: 16px;
+        margin-top: 10px;
+        resize: none;
+        height: 100px;
+    }
+
+    button[type="submit"] {
+        align-self: flex-start;
+        padding: 10px 20px;
+        background-color: #1da1f2;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: background-color 0.2s ease;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #1a91da;
+    }
+
+    /* Channels Container */
+    #channels {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding-top: 20px;
+    }
+
+    /* Post Cards Styling */
+    .card {
+        width: calc(50% - 20px);
+        min-width: 300px;
+        padding: 20px;
+        background-color: #ffffff;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         border-radius: 8px;
-        text-align: center;
+        text-align: left;
     }
 
     .card-title {
-        font-size: 1.5em;
-        margin: 0;
+        font-size: 1.2em;
+        font-weight: bold;
         color: #333;
     }
 
     .card-description {
-        color: #666;
+        color: #555;
         font-size: 1em;
         margin-top: 10px;
     }
 
-    .delete-button {
+    .delete-button, .comment-button {
         background-color: #ff4d4d;
         color: white;
         border: none;
-        padding: 8px 16px;
-        margin: 5px;
+        padding: 8px 12px;
         border-radius: 4px;
         cursor: pointer;
         font-size: 0.9em;
         margin-top: 15px;
         transition: background-color 0.3s ease;
+        margin-right: 5px;
     }
 
-    .delete-button:hover {
+    .delete-button:hover, .comment-button:hover {
         background-color: #ff1a1a;
     }
 </style>
 
-<style>
-.form-container {
-    width: 500px;
-    margin: 20px auto;
-    padding: 16px;
-    border: 1px solid #e1e8ed;
-    border-radius: 16px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif;
-}
-
-#content {
-    width: 100%;
-    border: none;
-    outline: none;
-    resize: none;
-    font-size: 16px;
-    padding: 12px;
-    color: #14171a;
-    border-bottom: 1px solid #e1e8ed;
-    box-sizing: border-box;
-    height: 100px;
-}
-
-.form-footer {
-    display: flex;
-    justify-content: flex-end;
-    padding-top: 12px;
-}
-
-button[type="submit"] {
-    background-color: #1da1f2;
-    color: #ffffff;
-    border: none;
-    border-radius: 20px;
-    padding: 8px 16px;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-
-button[type="submit"]:hover {
-    background-color: #1a91da;
-}
-
-h2 {
-    color: #ff4d4d !important;
-}
-
-.label {
-    color: #ff4d4d !important;
-}
-</style>
-
 <script type="module">
     import { pythonURI, fetchOptions } from '../assets/js/api/config.js';
-    const container = document.getElementById("posts");
+    const container = document.getElementById("channels");
 
     function openChatRoom(button) {
-        const postId = button.getAttribute("id");
-        window.location.href = `{{site.baseurl}}/create_and_compete/realityroom?postId=${postId}`;
+        const channelId = button.getAttribute("id");
+        window.location.href = `{{site.baseurl}}/create_and_compete/realityroom?channelId=${channelId}`;
     }
 
+    async function fetchUser() {
+        const response = await fetch(`${pythonURI}/api/user`, fetchOptions);
+        const user = await response.json();
+        console.log(user);
+        return user;
+    }
 
-    async function fetchPosts() {
+    const user = fetchUser();
+
+    async function fetchChannels() {
         try {
-            const response = await fetch(`${pythonURI}/api/post`, fetchOptions);
+            const groupName = 'Reality Room';
+            const responseData = {
+                group_name: groupName,
+            };
+            // add filter to get only messages from this channel
+            const response = await fetch(`${pythonURI}/api/channels/filter`, {
+                ...fetchOptions,
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(responseData)
+            });
+
             if (!response.ok) {
-                throw new Error('Failed to fetch groups: ' + response.statusText);
+                throw new Error('Failed to fetch channels: ' + response.statusText);
             }
-            const posts = await response.json();
+            const channels = await response.json();
             container.innerHTML = "";
 
-            posts.forEach(post => {
-                console.log("Id:", post.id);
-                console.log("Title:", post.title);
-                console.log("User:", post.user_name);
-                console.log("Content:", post.content);
-                console.log("Group:", post.group_name);
-
+            channels.forEach(channel => {
                 const card = document.createElement("div");
                 card.classList.add("card");
 
                 const title = document.createElement("h3");
                 title.classList.add("card-title");
-                title.textContent = post.title;
+                title.textContent = channel.name;
 
                 const description = document.createElement("p");
                 description.classList.add("card-description");
-                description.textContent = post.content;
+                description.textContent = channel.attributes["content"];
 
                 const deleteButton = document.createElement("button");
                 deleteButton.classList.add("delete-button");
                 deleteButton.textContent = "Delete";
 
                 const commentButton = document.createElement("button");
-                commentButton.classList.add("delete-button");
+                commentButton.classList.add("comment-button");
                 commentButton.textContent = "Comment";
-                commentButton.setAttribute("id", post.id);
+                commentButton.setAttribute("id", channel.id);
 
                 commentButton.onclick = function () {
                     openChatRoom(commentButton);
@@ -178,81 +384,44 @@ h2 {
                 container.appendChild(card);
             });
         } catch (error) {
-            console.error('Error fetching groups:', error);
+            console.error('Error fetching channels:', error);
         }
     }
 
-    document.getElementById('postForm').addEventListener('submit', async function(event) {
-        // Prevent default from submission
+    document.getElementById('channelForm').addEventListener('submit', async function(event) {
         event.preventDefault();
 
-        // Extract data from form
         const title = document.getElementById('title').value;
-        const content = document.getElementById('content').value;
-        const group_id = 4;
+        const content = document.getElementById('textArea').value;
+        const group_id = 9;
 
-        // Create API payload
-        const postData = {
-            title: title,
-            content: content,
-            group_id: group_id
+        const channelData = {
+            name: title,
+            group_id: group_id,
+            attributes: {"content": content}
         };
 
         try {
-            const response = await fetch(`${pythonURI}/api/post`, {
+            const response = await fetch(`${pythonURI}/api/channel`, {
                 ...fetchOptions,
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(postData)
+                body: JSON.stringify(channelData)
             });
 
             if (!response.ok) {
-                throw new Error('Failed to add post: ' + response.statusText);
+                throw new Error('Failed to add channel: ' + response.statusText);
             }
 
-            // Successful post
-            const result = await response.json();
-            fetchPosts();
-            document.getElementById('postForm').reset();
+            fetchChannels();
+            document.getElementById('channelForm').reset();
         } catch (error) {
-            console.error('Error adding post:', error);
-            alert('Error adding post: ' + error.message);
+            console.error('Error adding channel:', error);
+            alert('Error adding channel: ' + error.message);
         }
     });
 
-    function redirect() {
-
-    }
-
-
-    // function deletePost(formID) {
-    //     event.preventDefault();
-
-    //     // Create API payload
-    //     const deleteData = {
-    //         id: formID,
-    //     };
-
-    //     try {
-    //         const response = await fetch(`${pythonURI}/api/post`, {
-    //             ...fetchOptions,
-    //             method: 'DELETE',
-    //             headers: {
-    //                 'Content-Type': 'application/json'
-    //             },
-    //             body: JSON.stringify(postData)
-    //         });
-
-    //         if (!response.ok) {
-    //             throw new Error('Failed to delete post: ' + response.statusText);
-    //         }
-    //     } catch (error) {
-    //         console.error('Error deleting post:', error);
-    //         alert('Error deleting post: ' + error.message);
-    //     }
-    // }
-
-    fetchPosts();
+    fetchChannels();
 </script>

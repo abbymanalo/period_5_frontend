@@ -14,101 +14,155 @@ authors: Ahaan, Xavier, Spencer, Vasanth
     <style>
       /* General Styles */
       body {
-        background-color: #f7dc6f;
-        color: #f0f0f0;
-        font-family: Arial, sans-serif;
+        background-color: #2c3e50; /* Dark background for modern look */
+        color: #ecf0f1; /* Lighter text color for contrast */
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         min-height: 100vh;
+        margin: 0;
+        padding: 0;
       }
+      
       .container {
         text-align: center;
         margin-top: 20px;
+        width: 100%;
+        max-width: 1200px;
+        padding: 20px;
       }
+
       h2 {
-        color: #333;
+        color: #e67e22;
+        font-size: 2em;
+        margin-bottom: 10px;
       }
-      .game-mode {
-        margin-bottom: 20px;
-      }
+
+      /* Buttons */
       .btn {
-        padding: 10px 20px;
-        margin: 5px;
+        padding: 12px 24px;
+        margin: 10px;
         cursor: pointer;
-        background-color: #444;
-        color: #f0f0f0;
+        background-color: #2980b9;
+        color: #ecf0f1;
         border: none;
-        border-radius: 5px;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
       }
+      
       .btn:hover {
-        background-color: #555;
+        background-color: #3498db;
       }
+
+      /* Chessboard */
       .chessboard {
         display: grid;
-        grid-template-columns: repeat(8, 60px);
-        grid-template-rows: repeat(8, 60px);
-        border: 2px solid #444;
-        margin: 20px auto;
-        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+        grid-template-columns: repeat(8, 70px);
+        grid-template-rows: repeat(8, 70px);
+        border: 3px solid #34495e;
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
       }
+      
       .chessboard div {
-        width: 60px;
-        height: 60px;
+        width: 70px;
+        height: 70px;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 30px;
+        font-size: 32px;
         font-weight: bold;
         cursor: pointer;
       }
+      
       .yellow {
-        background-color: #f7dc6f;
+        background-color: #f7c6a5;
       }
+      
       .orange {
-        background-color: #f39c12;
+        background-color: #e67e22;
       }
+
+      /* Piece Colors */
+      .white-piece {
+        color: #f0f0f0; /* White pieces */
+      }
+      
+      .black-piece {
+        color: #333; /* Black pieces */
+      }
+
+      /* Chat Container */
       .chat-container {
         display: flex;
         justify-content: space-between;
         width: 100%;
         max-width: 1200px;
+        gap: 20px;
+        margin-top: 20px;
       }
+      
       .chat-box {
-        width: 40%;
-        background-color: #1a1a1a;
+        width: 45%;
+        background-color: #34495e;
         padding: 20px;
-        border-radius: 8px;
-        border: 2px solid #444;
+        border-radius: 12px;
+        border: 2px solid #2c3e50;
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
       }
+
       .chat-messages {
         height: 300px;
         overflow-y: auto;
-        background-color: #1b1b1b;
-        padding: 10px;
+        background-color: #2c3e50;
+        padding: 12px;
         border-radius: 10px;
-        border: 2px solid #444;
+        border: 2px solid #34495e;
       }
+      
       .message {
-        margin: 5px 0;
-        padding: 5px;
-        font-size: 14px;
-        color: #f0f0f0;
+        margin: 8px 0;
+        padding: 8px;
+        font-size: 15px;
+        color: #ecf0f1;
+        border-radius: 10px;
       }
+      
       .message.user-message {
-        background-color: #444;
-        border-radius: 15px;
+        background-color: #2980b9;
         text-align: right;
       }
+      
       .message.bot-message {
-        background-color: #b29800;
-        border-radius: 15px;
+        background-color: #e67e22;
         text-align: left;
       }
+      
       .channel-select {
-        margin: 10px 0;
+        margin: 15px 0;
+      }
+      
+      .message-input {
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+      }
+      
+      .message-input input[type="text"] {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #34495e;
+        border-radius: 8px;
+        background-color: #2c3e50;
+        color: #ecf0f1;
+        font-size: 16px;
+        margin-right: 10px;
+      }
+
+      .message-input input[type="text"]::placeholder {
+        color: #95a5a6;
       }
     </style>
   </head>
@@ -186,6 +240,14 @@ authors: Ahaan, Xavier, Spencer, Vasanth
             const square = document.createElement("div");
             square.classList.add((rowIndex + colIndex) % 2 === 0 ? "yellow" : "orange");
             square.textContent = pieces[piece] || "";
+            
+            // Apply the color class based on piece case
+            if (piece === piece.toUpperCase()) {
+              square.classList.add("white-piece"); // White pieces (uppercase)
+            } else if (piece === piece.toLowerCase()) {
+              square.classList.add("black-piece"); // Black pieces (lowercase)
+            }
+            
             square.addEventListener("click", () => selectSquare(rowIndex, colIndex));
             chessboard.appendChild(square);
           });
@@ -256,6 +318,8 @@ authors: Ahaan, Xavier, Spencer, Vasanth
     </script>
   </body>
 </html>
+
+
 
 
 <html lang="en">

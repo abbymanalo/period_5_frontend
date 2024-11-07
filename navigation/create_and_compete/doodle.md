@@ -10,47 +10,98 @@ author: Alex, Arshia, Prajna, and Mirabelle
 <details>
   <summary>Room Details</summary>
 
-<a href="{{site.baseurl}}/moderation/rules_doodle/">Moderation Rules</a>
+  <a href="{{site.baseurl}}/moderation/rules_doodle/" class="button">Moderation Rules</a>
 
-<p> The page is a place where people can explore themselves creatively and compete to see who has the best doodle. This allows for players to collaborate over their artistic abilities. Our room includes a chat room where players can converse about their creations, a doodle compete area, a place where people can post their art, and winners get crowned every week. This will help add to our classes page by making a fun artistic environment where everyone can collaborate. </p>
+  <p>The page is a place where people can explore themselves creatively and compete to see who has the best doodle. This allows for players to collaborate over their artistic abilities. Our room includes a chat room where players can converse about their creations, a doodle compete area, a place where people can post their art, and winners get crowned every week. This will help add to our classes page by making a fun artistic environment where everyone can collaborate.</p>
 
-
-<a href="{{site.baseurl}}/moderation/chat_doodle/" style="padding: 10px 20px; font-size: 16px; background-color: #7573e6; color: white; border: none; border-radius: 5px; text-decoration: none; display: inline-block;">
-  Chat Room
-</a>
-
-<a href="{{site.baseurl}}/moderation/artpost_doodle/" style="padding: 10px 20px; font-size: 16px; background-color: #7573e6; color: white; border: none; border-radius: 5px; text-decoration: none; display: inline-block;">
-  Art Post
-</a>
-
-
+  <a href="{{site.baseurl}}/moderation/chat_doodle/" class="button">Chat Room</a>
+  <a href="{{site.baseurl}}/moderation/artpost_doodle/" class="button">Art Post</a>
 </details>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drawing Canvas</title>
-    <style>
-        body { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-        canvas { border: 2px solid #7573e6; cursor: crosshair; margin-top: 10px; }
-        .color-button {
-            width: 30px;
-            height: 30px;
-            border: none;
-            margin: 2px;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
 
-<canvas id="drawingCanvas" width="600" height="400"></canvas>
+  details {
+    width: 80%;
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #f0e6ff;
+    border: 2px solid #c0a9e6;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  details summary {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #a4bbe0;
+    cursor: pointer;
+    padding-bottom: 8px;
+  }
+
+  details summary:hover {
+    color: #a06bce;
+  }
+
+  p {
+    color: #5f3877;
+    line-height: 1.6;
+    margin-top: 10px;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px 0;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #b68fe4;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+  }
+
+  .button:hover {
+    background-color: #a06bce;
+  }
+</style>
+
+
+<canvas id="drawingCanvas" width="600" height="400" style="border: 6px solid #7573e6; cursor: crosshair; margin-top: 10px;"></canvas>
+
+<style>
+    .button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #7573e6;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        display: inline-block;
+    }
+</style>
 
 <script>
     const canvas = document.getElementById('drawingCanvas');
     const ctx = canvas.getContext('2d');
     let drawing = false;
-    let currentColor = '#ad3636';
+    let currentColor = '#ad3636'; 
+    let previousColor = currentColor; 
+    let drawingHistory = []; 
+
+    function initializeCanvasBackground() {
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        saveCanvasState(); 
+    }
+
+    initializeCanvasBackground();
 
     canvas.addEventListener('mousedown', startDrawing);
     canvas.addEventListener('mouseup', stopDrawing);
@@ -65,6 +116,7 @@ author: Alex, Arshia, Prajna, and Mirabelle
     function stopDrawing() {
         drawing = false;
         ctx.closePath();
+        saveCanvasState(); 
     }
 
     function draw(event) {
@@ -77,44 +129,50 @@ author: Alex, Arshia, Prajna, and Mirabelle
     }
 
     function clearCanvas() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        saveCanvasState(); 
     }
 
     function changeColor(color) {
         currentColor = color;
+        previousColor = color;
+    }
+
+    function activateEraser() {
+        currentColor = '#ffffff'; 
     }
 
     function downloadDrawing() {
-    const link = document.createElement('a');
-    link.download = 'my_drawing.png'; 
-    link.href = canvas.toDataURL();  
-    link.click();
+        const link = document.createElement('a');
+        link.download = 'my_drawing.png';
+        link.href = canvas.toDataURL();
+        link.click();
     }
-    
+
+    function saveCanvasState() {
+        drawingHistory.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
+    }
+
+    function undoLastAction() {
+        if (drawingHistory.length > 1) {
+            drawingHistory.pop(); 
+            const previousState = drawingHistory[drawingHistory.length - 1];
+            ctx.putImageData(previousState, 0, 0); 
+        } else {
+            clearCanvas(); 
+        }
+    }
 </script>
-
-<div style="margin-top: 10px;">
-        <button style="background-color: #524e4e!important;  display:inline-block" onclick="changeColor('#524e4e')">Black</button>
-        <button style="background-color: #3a63e8!important;  display:inline-block" onclick="changeColor('#3a63e8')">Blue</button>
-        <button style="background-color: #3c7d2c!important;  display:inline-block" onclick="changeColor('#3c7d2c')">Green</button>
-        <button style="background-color: #452b2b!important;  display:inline-block" onclick="changeColor('#452b2b')">Brown</button>
-        <button style="background-color: #db74db!important;  display:inline-block" onclick="changeColor('#db74db')">Pink</button>
+<div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
+    <button style="background-color: #524e4e !important; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;" onclick="changeColor('#524e4e')">Black</button>
+    <button style="background-color: #3a63e8 !important; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;" onclick="changeColor('#3a63e8')">Blue</button>
+    <button style="background-color: #3c7d2c !important; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;" onclick="changeColor('#3c7d2c')">Green</button>
+    <button style="background-color: #992222 !important; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;" onclick="changeColor('#992222')">Red</button>
+    <button style="background-color: #db74db !important; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;" onclick="changeColor('#db74db')">Pink</button>
+    <button style="background-color: #7573e6 !important; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;" onclick="activateEraser()">Eraser</button>
+    <button style="background-color: #7573e6 !important; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;" onclick="undoLastAction()">Undo</button>
+    <button style="background-color: #7573e6 !important; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;" onclick="clearCanvas()">Clear Drawing</button>
+    <button style="background-color: #ad3636 !important; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;" onclick="downloadDrawing()">Save Your Work!</button>
 </div>
 
-<div>
-    <button onclick="clearCanvas()" style="font-size: 18px; background-color: #ad3636; padding: 10px 20px; color: white;">Clear Drawing</button>
-</div>
-
-<div>
-    <button onclick="downloadDrawing()" style="font-size: 18px; background-color: #ad3636; padding: 10px 20px; color: white;">Save Your Work!</button>
-</div>
-
-
-</body>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doodle Animation</title>
-    <link rel="stylesheet" href="styles.css">
-</head>

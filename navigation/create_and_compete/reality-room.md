@@ -7,6 +7,12 @@ menu: nav/create_and_compete.html
 author: Yash, Nikhil, Rohan, Neil
 ---
 
+<div class="sidebar">
+    <a href="/flocker_frontend/create_and_compete/realityroom-home" class="sidebar-btn">🏠 Home</a>
+    <a href="/flocker_frontend/create_and_compete/reality_game" class="sidebar-btn">🎮 Game</a>
+    <a href="/flocker_frontend/create_and_compete/reality-room-about" class="sidebar-btn">❓ About</a>
+    <a href="/flocker_frontend/create_and_compete/reality-room-terms" class="sidebar-btn">📄 Terms</a>
+</div>
 
 <details>
   <summary>Room Details</summary>
@@ -108,6 +114,34 @@ author: Yash, Nikhil, Rohan, Neil
 </div>
 
 <style>
+    /* Sidebar */
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 150px;
+        height: 100%;
+        background-color: #121212 !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+        color: white;
+        border-right: 1px solid gray;
+    }
+    .sidebar-btn {
+        background-color: #121212;
+        color: white !important;
+        border: 2px solid gray;
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 8px;
+        font-size: 16px;
+        width: 120px;
+        text-align: center;
+        cursor: pointer;
+        text-decoration: none;
+    }
     table, th, td {
         border: 1px solid black;
         border-collapse: collapse;
@@ -273,7 +307,52 @@ author: Yash, Nikhil, Rohan, Neil
     }
 </style>
 
-<script>
+<script type="module">
+    import { pythonURI, fetchOptions } from '../assets/js/api/config.js';
+
+    async function getPosts() {
+        const url = new URL(window.location.href)
+        const channel_id = url.searchParams.get("channelId");
+
+        const channelData = {
+            channel_id: channel_id,
+        };
+
+        try {
+            const responses = await fetch(`${pythonURI}/api/posts/filter`, {
+                ...fetchOptions,
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(channelData)
+            });
+            const posts = await responses.json();
+            const outputDiv = document.getElementById('outputDiv');
+            outputDiv.innerHTML = '';
+
+            posts.forEach(post => {
+                var paragraph = document.createElement('p');
+                paragraph.textContent = post["comment"];
+                paragraph.classList.add('message-bubble');
+                document.getElementById('outputDiv').appendChild(paragraph);
+
+                const messagesDiv = document.getElementById('outputDiv');
+                messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            })
+
+            if (!responses.ok) {
+                throw new Error('Failed to get posts: ' + responses.statusText);
+            }
+
+        } catch (error) {
+            console.error('Error get posts:', error);
+            alert('Error get posts: ' + error.message);
+        }
+    };
+
+    getPosts();
+
     // chat functionality
     document.getElementById('messageBox').addEventListener('keypress', function(event) {
         if (event.key === 'Enter') {
@@ -308,23 +387,66 @@ author: Yash, Nikhil, Rohan, Neil
                     console.log('No profanity');
                 }
 
-                var paragraph = document.createElement('p');
-                paragraph.textContent = messageContent;
-                paragraph.classList.add('message-bubble');
-                document.getElementById('outputDiv').appendChild(paragraph);
-                event.target.value = ''; // clear box
+                async function addPost() {
+                    const url = new URL(window.location.href)
+                    const channel_id = url.searchParams.get("channelId");
 
-                const messagesDiv = document.getElementById('outputDiv');
-                messagesDiv.scrollTop = messagesDiv.scrollHeight;
+                    const channelData = {
+                        channel_id: channel_id,
+                        title: "title",
+                        comment: messageContent
+                    };
 
-                const boomSound = new Audio('../images/boom.mp3');
-                if (messageContent.toLowerCase() === 'boom') {
-                    boomSound.play();
-                    document.body.classList.add('flash');
-                    setTimeout(() => {
-                        document.body.classList.remove('flash');
-                    }, 500); // Remove the flash effect after 0.5s
-                }
+                    try {
+                        const responses = await fetch(`${pythonURI}/api/post`, {
+                            ...fetchOptions,
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(channelData)
+                        });
+                        const posts = await responses.json();
+
+                        if (!responses.ok) {
+                            throw new Error('Failed to get posts: ' + responses.statusText);
+                        }
+
+                        const paragraph = document.createElement('p');
+                        paragraph.textContent = messageContent;
+                        paragraph.classList.add('message-bubble');
+                        const outputDiv = document.getElementById('outputDiv');
+                        outputDiv.appendChild(paragraph);
+                        outputDiv.scrollTop = outputDiv.scrollHeight;
+
+                        // Clear the message box
+                        event.target.value = '';
+
+                    } catch (error) {
+                        console.error('Error get posts:', error);
+                        alert('Error get posts: ' + error.message);
+                    }
+                };
+
+                addPost();
+                // getPosts();
+                // var paragraph = document.createElement('p');
+                // paragraph.textContent = messageContent;
+                // paragraph.classList.add('message-bubble');
+                // document.getElementById('outputDiv').appendChild(paragraph);
+                // event.target.value = ''; // clear box
+
+                // const messagesDiv = document.getElementById('outputDiv');
+                // messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+                // const boomSound = new Audio('../images/boom.mp3');
+                // if (messageContent.toLowerCase() === 'boom') {
+                //     boomSound.play();
+                //     document.body.classList.add('flash');
+                //     setTimeout(() => {
+                //         document.body.classList.remove('flash');
+                //     }, 500); // Remove the flash effect after 0.5s
+                // }
             })
             .catch(error => {
                 console.error(error);
@@ -347,4 +469,48 @@ author: Yash, Nikhil, Rohan, Neil
             window.location.href = '{{site.baseurl}}/create_and_compete/reality_game';
         }
     }
+</script>
+
+<script type="module">
+    import { pythonURI, fetchOptions } from '../assets/js/api/config.js';
+    // async function getPosts() {
+    //     const url = new URL(window.location.href)
+    //     const channel_id = url.searchParams.get("channelId");
+
+    //     const channelData = {
+    //         channel_id: channel_id,
+    //     };
+
+    //     try {
+    //         const responses = await fetch(`${pythonURI}/api/posts/filter`, {
+    //             ...fetchOptions,
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-Type': 'application/json'
+    //             },
+    //             body: JSON.stringify(channelData)
+    //         });
+    //         const posts = await responses.json();
+
+    //         posts.forEach(post => {
+    //             var paragraph = document.createElement('p');
+    //             paragraph.textContent = post["comment"];
+    //             paragraph.classList.add('message-bubble');
+    //             document.getElementById('outputDiv').appendChild(paragraph);
+
+    //             const messagesDiv = document.getElementById('outputDiv');
+    //             messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    //         })
+
+    //         if (!responses.ok) {
+    //             throw new Error('Failed to get posts: ' + responses.statusText);
+    //         }
+
+    //     } catch (error) {
+    //         console.error('Error get posts:', error);
+    //         alert('Error get posts: ' + error.message);
+    //     }
+    // };
+
+    // getPosts();
 </script>
