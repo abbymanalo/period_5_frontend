@@ -40,7 +40,7 @@ menu: nav/rate_and_relate.html
 }
 
 .imageContainer > img {
-    width: 50%;
+    width: 80%;
     display: inline-block;
 }
 
