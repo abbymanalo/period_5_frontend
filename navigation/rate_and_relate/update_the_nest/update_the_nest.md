@@ -123,7 +123,7 @@ menu: nav/rate_and_relate.html
 <div style="text-align: center;" class="header">
     <h1> Update the Nest </h1>
     <div class="headerImage">
-        <img src="{{site.baseurl}}/images/about/CSP_LOGO-removebg-preview.png" style="display: block; margin: 0 auto;" alt="Logo">
+        <img src="{{site.baseurl}}/images/rate_and_relate/update_the_nest/update_the_nest.png" style="display: block; margin: 0 auto;" alt="Logo">
     </div>
     <div class="headerText">
         <button class="styled-button"><a href="">Upload Media</a></button>
@@ -135,7 +135,7 @@ menu: nav/rate_and_relate.html
     <h1> Feed </h1>
         <div class="postFeed">
             <div class="imageContainer">
-                <img src="{{site.baseurl}}/images/tempPhoto.jpg">
+                <img src="{{site.baseurl}}/images/rate_and_relate/update_the_nest/temp_photo.jpg">
             </div>
             <div class="textContainer">
                 <h3>Caption</h3><br>
