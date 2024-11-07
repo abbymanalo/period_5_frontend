@@ -146,14 +146,19 @@ menu: nav/rate_and_relate.html
         </div>
 </div>
 
-<div class="upload_box">
+<div class="upload_box" id="upload_box">>
     <img class="toggle-button" onclick="toggleDiv()" src="{{site.baseurl}}/images/upload_imagebutton.png" width= 500> <br>
     <text class="content-div"></text>
     <label for="textInput">Enter caption:</label>
     <input type="text" id="textInput" placeholder="Type something...">
     <button class="post-button">post</button>
-    <button class="exit-button">x</button>
+    <button class="exit-button" onclick="closeDiv('upload_box')">x</button>
 </div>
+
+<script>
+  //function for close out post div
+function closeDiv(divId) { var div = document.getElementById(divId); div.style.display = "none"; }
+</script>  
 
 <script type="module">
 import { createImagePost } from '{{site.baseurl}}/assets/js/createRateAndRelateFeedList.js';
