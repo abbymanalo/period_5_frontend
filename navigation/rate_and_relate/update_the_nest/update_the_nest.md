@@ -111,7 +111,7 @@ menu: nav/rate_and_relate.html
     top: 50%;                   /* Center vertically */
     left: 50%;                  /* Center horizontally */
     transform: translate(-50%, -50%); /* Adjust back by half of div’s size */
-    background-color: lightblue;
+    background-color:  #FBC3C3;
     padding: 20px;
     border: 1px solid #ccc;
     visibility: hidden;         /* Hidden initially */
