@@ -41,6 +41,7 @@ menu: nav/rate_and_relate.html
 .feed {
     border: 10px solid black;
     border-radius: 50px;
+    border-color: #F5E1E7;
     background-color: pink;
     text-align: center;
     padding: 100px 0 3px 0;
@@ -51,6 +52,7 @@ menu: nav/rate_and_relate.html
 .header {
         border: 10px solid black;
         border-radius: 50px;
+        border-color: #F5E1E7;
         background-color: pink;
         text-align: center;
         padding: 5px 0 3px 0;
