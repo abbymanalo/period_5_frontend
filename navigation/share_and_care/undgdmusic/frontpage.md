@@ -2,7 +2,7 @@
 layout: page
 title: Underground Music
 description: Share music with others!
-permalink: /UndgdMusic/
+permalink: /undgdmusic/
 ---
 <html lang="en">
 <head>

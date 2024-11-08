@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
             username = usernameInput.value.trim();
             usernameModal.style.display = "none"; // Hide modal
             chatRoomContainer.style.display = "block"; // Show chat room
+            loadMessages(); // Load stored messages from localStorage
         } else {
             alert("Please enter a username.");
         }
@@ -33,12 +34,35 @@ document.addEventListener("DOMContentLoaded", function() {
             // Append the message to the chat box
             chatBox.appendChild(messageElement);
             
+            // Save message to localStorage
+            saveMessage(`${username}: ${message}`);
+            
             // Scroll to the bottom of the chat box
             chatBox.scrollTop = chatBox.scrollHeight;
             
             // Clear the input field
             chatMessage.value = "";
         }
+    }
+
+    // Save message to localStorage
+    function saveMessage(message) {
+        let messages = JSON.parse(localStorage.getItem("chatMessages")) || [];
+        messages.push(message);
+        localStorage.setItem("chatMessages", JSON.stringify(messages));
+    }
+
+    // Load messages from localStorage
+    function loadMessages() {
+        const messages = JSON.parse(localStorage.getItem("chatMessages")) || [];
+        messages.forEach((msg) => {
+            const messageElement = document.createElement("div");
+            messageElement.classList.add("message");
+            messageElement.textContent = msg;
+            chatBox.appendChild(messageElement);
+        });
+        // Scroll to the bottom of the chat box after loading messages
+        chatBox.scrollTop = chatBox.scrollHeight;
     }
 
     // Send message when the Send button is clicked
@@ -50,5 +74,11 @@ document.addEventListener("DOMContentLoaded", function() {
             event.preventDefault(); // Prevents newline in the input field
             sendMessage();
         }
+    });
+
+    // Clear chat history from localStorage
+    document.getElementById("clear-chat").addEventListener("click", function() {
+        localStorage.removeItem("chatMessages");
+        chatBox.innerHTML = ""; // Clear chat box content
     });
 });

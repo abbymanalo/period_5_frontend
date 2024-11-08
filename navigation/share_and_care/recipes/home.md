@@ -10,14 +10,15 @@ author: Ryan, Jowan, Gabriela, Michelle
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hungry Games</title>
     <style>
         body {
-            font-family: 'Calibri', sans-serif; 
+            font-family: 'Calibri', sans-serif;
             background-color: #f8f9fa;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center; 
+            justify-content: center;
             min-height: 100vh;
             margin: 0;
         }
@@ -44,8 +45,8 @@ author: Ryan, Jowan, Gabriela, Michelle
             border-radius: 25px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             background-color: #fff7e6;
-            max-width: 1200px; 
-            margin: 20px auto; 
+            max-width: 1200px;
+            margin: 20px auto;
         }
         .image-row img {
             width: 300px;
@@ -59,8 +60,8 @@ author: Ryan, Jowan, Gabriela, Michelle
             transform: scale(1.1);
         }
         .chat-container {
-            width: 1000px;  
-            height: 600px; 
+            width: 1000px;
+            height: 600px;
             display: flex;
             flex-direction: column;
             border: 2px solid #ff8c00;
@@ -69,7 +70,7 @@ author: Ryan, Jowan, Gabriela, Michelle
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
             background-color: #fff3e0;
             margin-top: 20px;
-            text-align: center; 
+            text-align: center;
         }
         .chat-box {
             flex: 1;
@@ -87,8 +88,8 @@ author: Ryan, Jowan, Gabriela, Michelle
             background-color: #ffcc80;
             word-wrap: break-word;
             max-width: 80%;
-            position: relative; 
-            color: #000; 
+            position: relative;
+            color: #000;
         }
         .chat-label {
             color: #333;
@@ -128,10 +129,10 @@ author: Ryan, Jowan, Gabriela, Michelle
             justify-content: space-between;
             align-items: center;
             margin: 10px 0;
-            font-weight: bold; 
+            font-weight: bold;
         }
         .heart {
-            margin-left: 15px; 
+            margin-left: 15px;
             font-size: 50px;
             color: grey;
             cursor: pointer;
@@ -142,11 +143,11 @@ author: Ryan, Jowan, Gabriela, Michelle
         }
         .about-header,
         .rules-header {
-            color: #DFAF8A; /* Pastel orange */
+            color: #DFAF8A;
         }
         .about-paragraph,
         .rules-paragraph {
-            color: #C88F66; /* Darker pastel orange */
+            color: #C88F66;
         }
         .link-row {
             display: flex;
@@ -154,67 +155,116 @@ author: Ryan, Jowan, Gabriela, Michelle
             align-items: center;
             gap: 20px;
             padding: 20px;
-            border: 10px solid #D7C9E5; 
+            border: 10px solid #D7C9E5;
             border-radius: 25px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            background-color: #fff7e6; 
+            background-color: #fff7e6;
             max-width: 90%;
             margin: 20px 0;
         }
         .link-row a {
             text-decoration: none;
-            color: #6A0DAD; /* Text color */
-            font-size: 20px; /* Font size */
+            color: #6A0DAD;
+            font-size: 20px;
         }
         h1 {
-            color: #ff8c00; 
+            color: #ff8c00;
         }
         .collapsible {
-    background-color: #333; /* Black background */
-    color: white; /* White text */
-    cursor: pointer;
-    padding: 15px; 
-    width: 80%; /* Set width to 80% for alignment */
-    margin: 10px auto; /* Center it horizontally */
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 40px; 
-    transition: 0.4s;
-    border-radius: 5px; 
-    font-family: 'Calibri', sans-serif; /* Set font to Calibri */
-}
-
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            width: 80%;
+            margin: 10px auto;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 40px;
+            transition: 0.4s;
+            border-radius: 5px;
+            font-family: 'Calibri', sans-serif;
+        }
         .content {
             padding: 0 18px;
             display: none;
             overflow: hidden;
-            background-color: #222; /* Darker background for content */
-            color: white; /* White text for content */
+            background-color: #222;
+            color: white;
+        }
+        /* Post Form */
+        .container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            max-width: 800px;
+            width: 100%;
+            background-color: #2C3E50;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: #ECF0F1;
+        }
+        .form-container label {
+            margin-bottom: 5px;
+        }
+        .form-container select {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            width: 100%;
+            background-color: #34495E;
+            color: #ECF0F1;
+            font-size: 16px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            outline: none;
+        }
+        .form-container button {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: #34495E;
+            color: #ECF0F1;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
 
 <h1 class="about-header">ABOUT THIS HANGOUT:</h1>
-<p class="about-paragraph">This is a hangout all about people's favorite food, restaurants, and more! We have a (local) backend running that stores chat messages in a database. We have a list of local restaurants where you can browse. Explore and have fun!</p>
+<p class="about-paragraph">This is a hangout all about people's favorite food, restaurants, and more! Explore and have fun!</p>
 
-<button class="collapsible">MODERATION RULES</button>
-<div class="content">
-    <p class="rules-paragraph">1. Please do not use profanity in the hangout.</p>
-    <p class="rules-paragraph">2. Please be respectful of others. Think before you chat or use any of the interactive features.</p>
-    <p class="rules-paragraph">3. Reminder that your data is stored in a (local) backend.</p>
-    <p class="rules-paragraph">4. Please do NOT spam flood the chat.</p>
-    <p class="rules-paragraph">5. Stay on task. This hangout is for people to talk about food, recipes, and restaurants.</p>
-    <p class="rules-paragraph">6. Do NOT impersonate people.</p>
+<!-- Moderation Rules Dropdown -->
+<div class="dropdown">
+    <button class="collapsible">MODERATION RULES</button>
+    <div class="content">
+        <p class="rules-paragraph">1. Please do not use profanity in the hangout.</p>
+        <p class="rules-paragraph">2. Please be respectful of others. Think before you chat or use any of the interactive features.</p>
+        <p class="rules-paragraph">3. Reminder that your data is stored in a (local) backend.</p>
+        <p class="rules-paragraph">4. Please do NOT spam flood the chat.</p>
+        <p class="rules-paragraph">5. Stay on task. This hangout is for people to talk about food, recipes, and restaurants.</p>
+        <p class="rules-paragraph">6. Do NOT impersonate people.</p>
+    </div>
 </div>
 
+<!-- Image Row Section -->
 <div class="image-row">
     <img src="https://cdn.prod.website-files.com/56f03b1536442f6b27f0f08c/5f03324cbb2506842953d137_worlds-best-foods-pizza.jpg" alt="Pizza">
     <img src="https://www.eatingwell.com/thmb/iCdLRBC1BMcDYKRYMTyyToQ8mRs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8401873-ad2429ae1858464a92229875c91c093d.jpg" alt="Pasta">
     <img src="https://thatdeliciousdish.com/wp-content/uploads/2020/07/Garlic-Mushroom-Noodles-Recipe-web1-1-800x840.jpg" alt="Ramen">
 </div>
 
+<!-- Chat Section -->
 <div class="chat-container">
     <div class="chat-label">Chat Box</div>
     <div class="chat-box" id="chatBox">
@@ -222,7 +272,7 @@ author: Ryan, Jowan, Gabriela, Michelle
     </div>
     <div class="input-box">
         <input type="text" id="userName" placeholder="Enter your name..." />
-        <input type="text" id="userInput" placeholder="Share a recipe or restaurant...">
+        <input type="text" id="userInput" placeholder="Share a recipe or restaurant..." />
         <button onclick="sendMessage()">Send</button>
     </div>
 </div>
@@ -238,84 +288,142 @@ author: Ryan, Jowan, Gabriela, Michelle
         <span class="heart" onclick="toggleHeart(this)">♡</span>
     </li>
     <li class="restaurant-item">
-        <strong>Board And Brew (Del Sur)</strong>
+        <strong>California Pizza Kitchen</strong>
         <span class="heart" onclick="toggleHeart(this)">♡</span>
     </li>
     <li class="restaurant-item">
-        <strong>Luna Grill (Del Sur)</strong>
+        <strong>La Jolla Village Market</strong>
         <span class="heart" onclick="toggleHeart(this)">♡</span>
     </li>
     <li class="restaurant-item">
-        <strong>Piacere Mio Del Sur</strong>
+        <strong>Shake Shack</strong>
         <span class="heart" onclick="toggleHeart(this)">♡</span>
     </li>
 </ul>
 
-<div class="image-row">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWAt_iSo2fSLH7dyuHxy4y-wsdsJ5dvH3FfQ&s" alt="Image 1">
-    <img src="https://www.theglowwellness.com/wp-content/uploads/2022/03/208e6e4a-8cb0-1aca-65b2-29883634b00a-1080x1080.jpg" alt="Image 2">
-    <img src="https://images-prod.healthline.com/hlcmsresource/images/AN_images/benefits-of-yerba-mate-1296x728-feature.jpg" alt="Image 3">
+<!-- Post Creation Form -->
+<div class="container">
+    <div class="form-container">
+        <h2>Select Group and Create Post</h2>
+        <form id="postForm">
+            <label for="group_id">Group:</label>
+            <select id="group_id" name="group_id" required>
+                <option value="">Select a group</option>
+            </select>
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required>
+            <label for="content">Content:</label>
+            <textarea id="content" name="content" required></textarea>
+            <button type="submit">Add Post</button>
+        </form>
+        <div id="details"></div>
+    </div>
 </div>
 
 <script>
-    async function fetchMessages() {
-        const response = await fetch('http://localhost:5000/messages');
-        const messages = await response.json();
-        messages.forEach(message => {
-            displayMessage(message);
-        });
+// Toggle the heart icon when clicked
+function toggleHeart(heartElement) {
+    heartElement.classList.toggle('liked');
+    if (heartElement.classList.contains('liked')) {
+        heartElement.innerText = '♥';
+    } else {
+        heartElement.innerText = '♡';
     }
+}
 
-    async function sendMessage() {
-        const userName = document.getElementById("userName").value.trim();
-        const inputText = document.getElementById("userInput").value.trim();
+// Chat functionality
+function sendMessage() {
+    const name = document.getElementById("userName").value;
+    const message = document.getElementById("userInput").value;
+    const chatBox = document.getElementById("chatBox");
 
-        if (inputText !== "" && userName !== "") {
-            const response = await fetch('http://localhost:5000/messages', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ user: userName, text: inputText }),
-            });
-            const message = await response.json();
-            displayMessage(message);
-            document.getElementById("userInput").value = ''; // Clear input box
+    if (name && message) {
+        const chatMessage = document.createElement("div");
+        chatMessage.classList.add("chat-message");
+        chatMessage.textContent = `${name}: ${message}`;
+        chatBox.appendChild(chatMessage);
+        chatBox.scrollTop = chatBox.scrollHeight;
+
+        document.getElementById("userName").value = "";
+        document.getElementById("userInput").value = "";
+    } else {
+        alert("Please enter both your name and a message!");
+    }
+}
+
+// Collapsible Moderation Rules Dropdown
+var collapsibles = document.getElementsByClassName("collapsible");
+for (var i = 0; i < collapsibles.length; i++) {
+    collapsibles[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+            content.style.display = "none";
         } else {
-            alert("Please enter both your name and a message.");
+            content.style.display = "block";
         }
-    }
+    });
+}
 
-    function displayMessage(message) {
-        const messageDiv = document.createElement("div");
-        messageDiv.classList.add("chat-message");
-        messageDiv.innerHTML = `<strong>${message.user}</strong>: ${message.text}`; // Bold user name
-
-        document.getElementById("chatBox").appendChild(messageDiv);
-        document.getElementById("chatBox").scrollTop = document.getElementById("chatBox").scrollHeight; // Scroll to the bottom
-    }
-
-    // Fetch existing messages when the page loads
-    window.onload = fetchMessages;
-
-    function toggleHeart(element) {
-        element.classList.toggle('liked');
-        element.textContent = element.classList.contains('liked') ? '❤️' : '♡';
-    }
-
-    // Collapsible functionality for moderation rules
-    const coll = document.getElementsByClassName("collapsible");
-    for (let i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            const content = this.nextElementSibling;
-            if (content.style.display === "block") {
-                content.style.display = "none";
-            } else {
-                content.style.display = "block";
-            }
+// Fetch groups for dropdown selection
+async function fetchGroups() {
+    const pythonURI = "https://flocker.nighthawkcodingsociety.com";
+    const fetchOptions = {
+        headers: {
+            'Authorization': 'Bearer YOUR_AUTH_TOKEN'
+        }
+    };
+    try {
+        const response = await fetch(`${pythonURI}/api/groups`, fetchOptions);
+        if (!response.ok) {
+            throw new Error('Failed to fetch groups: ' + response.statusText);
+        }
+        const groups = await response.json();
+        const groupSelect = document.getElementById('group_id');
+        groups.forEach(group => {
+            const option = document.createElement('option');
+            option.value = group.id;
+            option.textContent = group.name;
+            groupSelect.appendChild(option);
         });
+    } catch (error) {
+        console.error('Error fetching groups:', error);
     }
+}
+
+// Handle post form submission
+document.getElementById('postForm').addEventListener('submit', async function(event) {
+    event.preventDefault();
+    const title = document.getElementById('title').value;
+    const content = document.getElementById('content').value;
+    const group_id = document.getElementById('group_id').value;
+    const postData = {
+        title: title,
+        content: content,
+        group_id: group_id
+    };
+    try {
+        const response = await fetch("https://flocker.nighthawkcodingsociety.com/api/post", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer YOUR_AUTH_TOKEN'
+            },
+            body: JSON.stringify(postData)
+        });
+        if (!response.ok) {
+            throw new Error('Failed to add post: ' + response.statusText);
+        }
+        alert('Post added successfully!');
+        document.getElementById('postForm').reset();
+    } catch (error) {
+        console.error('Error adding post:', error);
+        alert('Error adding post: ' + error.message);
+    }
+});
+
+// Fetch groups when the page loads
+fetchGroups();
 </script>
 </body>
 </html>

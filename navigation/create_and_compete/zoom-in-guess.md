@@ -1,86 +1,75 @@
 ---
 layout: post
-title: Create and Compete - Zoom n guess
+title: Create and Compete - Zoom n Guess
 search_exclude: true
 permalink: /create_and_compete/zoominguess
 menu: nav/create_and_compete.html
 author: Arhaan, Akshaj, Mihir, and Keerthan
 ---
 
-
-
-
 <link rel="stylesheet" href="{{site.baseurl}}/navigation/create_and_compete/zoominguess.css">
 <script src="{{site.baseurl}}/navigation/create_and_compete/scripted.js"></script>
 
-
 <div class="zoomnguess-container">
    <h1>Zoom N Guess</h1>
-   <p>Look at the closely zoomed-in image below and guess who it is. Explain why you think it's that person!</p>
 
+   <!-- Static Image Section with "Image of the Day" Label -->
+   <div class="zoom-image-section">
+       <div id="image-of-day" class="image-of-day-text">Image of the Day</div>
+       <div id="image-display" class="zoom-image-box">
+           <img id="zoomed-image" src="{{site.baseurl}}/images/zoomin-guess/einstein.jpg" alt="Zoomed Image" class="zoom-image">
+       </div>
+   </div>
 
-<!-- Random Image Section -->
-<div class="zoom-image-section">
-   <button id="generate-image" class="submit-button">Generate Zoomed Image</button>
-   <div id="image-display" class="zoom-image-box">
-       <img id="zoomed-image" src="{{site.baseurl}}/images/zoomin-guess/einstein.jpg" alt="Zoomed Image" class="zoom-image">
+   <!-- Guess Input Section -->
+   <div class="guess-box">
+       <label for="guess-input">Your Guess:</label>
+       <input type="text" id="guess-input" placeholder="Enter the name of the person">
+   </div>
+
+   <!-- Reasoning Input Section -->
+   <div class="explanation-box">
+       <label for="reasoning-input">Explain Your Reasoning:</label>
+       <textarea id="reasoning-input" placeholder="Why do you think it's that person?"></textarea>
+   </div>
+
+   <!-- Submit Button -->
+   <button id="submit-guess" class="submit-button">Submit Guess</button>
+
+   <!-- Separate Feedback Sections -->
+   <div id="feedback-section">
+       <h2>Your Guess</h2>
+       <div id="guess-feedback" class="info-box">Your guess will appear here after submission.</div>
+
+       <h2>Your Explanation</h2>
+       <div id="explanation-feedback" class="info-box">Your explanation will appear here after submission.</div>
+   </div>
+
+   <!-- Feedback Button -->
+   <button id="feedback-button" class="feedback-button" onclick="window.location.href='{{site.baseurl}}/create_and_compete/feedback'">Interactive Chat</button>
+
+    <!-- Comments Button -->
+   <button onclick="window.location.href= 'https://github.com/ArhaanM123/Arhaan_2025/issues/11'" class="Comment-button">
+       Feedback
+   </button>
+
+   <!-- Leaderboard Section -->
+   <section id="leaderboard-section">
+       <h2>Top Guessers</h2>
+       <ul id="leaderboard" class="leaderboard-box">
+           <!-- Leaderboard will show the top contributors -->
+       </ul>
+   </section>
+
+   <!-- Feedback Modal -->
+   <div id="feedback-modal" class="modal">
+       <div class="modal-content">
+           <span class="close-button">&times;</span>
+           <h2>Feedback Submitted!</h2>
+           <p>😎</p>
+       </div>
    </div>
 </div>
-
-
-<!-- Guess Input Section -->
-<div class="guess-box">
-   <label for="guess-input">Your Guess:</label>
-   <input type="text" id="guess-input" placeholder="Enter the name of the person">
-</div>
-
-
-<!-- Reasoning Input Section -->
-<div class="explanation-box">
-   <label for="reasoning-input">Explain Your Reasoning:</label>
-   <textarea id="reasoning-input" placeholder="Why do you think it's that person?"></textarea>
-</div>
-
-
-<!-- Submit Button -->
-<button id="submit-guess" class="submit-button">Submit Guess</button>
-
-
-<!-- Separate Feedback Sections -->
-<div id="feedback-section">
-   <h2>Your Guess</h2>
-   <div id="guess-feedback" class="info-box">Your guess will appear here after submission.</div>
-
-
-   <h2>Your Explanation</h2>
-   <div id="explanation-feedback" class="info-box">Your explanation will appear here after submission.</div>
-</div>
-
-
-<!-- Feedback Button -->
-<button id="feedback-button" class="feedback-button" onclick="window.location.href='{{site.baseurl}}/create_and_compete/feedback'">Feedback</button>
-
-
-<!-- Leaderboard Section -->
-<section id="leaderboard-section">
-   <h2>Top Guessers</h2>
-   <ul id="leaderboard" class="leaderboard-box">
-       <!-- Leaderboard will show the top contributors -->
-   </ul>
-</section>
-
-
-<!-- Feedback Modal -->
-<div id="feedback-modal" class="modal">
-   <div class="modal-content">
-       <span class="close-button">&times;</span>
-       <h2>Feedback Submitted!</h2>
-       <p>😎</p>
-   </div>
-</div>
-</div>
-
-
 
 
 <style>

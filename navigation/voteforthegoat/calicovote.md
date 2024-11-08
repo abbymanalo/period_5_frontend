@@ -8,9 +8,20 @@ Authors: Maryam, Nora, Kushi, Joanna
 ---
 
 <style>
+    
 p, h2, h3, body {
- font-family: "Times New Roman", Times, serif;;
+ font-family: "Times New Roman", Times, serif;
 }
+ body {
+            font-family: "Times New Roman", Times, serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 10000;
+            margin: 0;
+            background: #d4637e !important;
+        }
 .header-text {
     font-size: 40px;
     text-align: center;
@@ -69,6 +80,15 @@ p, h2, h3, body {
 .button-text {
     font-size: 30px;
     text-align: center;
+    background-color: #C71585; /* Change button color to dark pink */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+.button-text:hover {
+    background-color: #A0136B; /* Darker shade of dark pink on hover */
 }
 .hidden-example {
     display:none;
@@ -83,8 +103,16 @@ p, h2, h3, body {
     border-radius: 5px;
 }
 .comment-button {
-    padding: 8px; 
+    padding: 8px;
     margin-top: 5px;
+    background-color: #C71585; /* Change button color to dark pink */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.comment-button:hover {
+    background-color: #A0136B; /* Darker shade of dark pink on hover */
 }
 .message-box {
     display:none; 
@@ -142,17 +170,27 @@ p {
                0 0 15px rgba(255, 20, 147, 0.6),
                0 0 20px rgba(255, 20, 147, 0.5);
 }
+.button-text {
+    font-size: 30px;
+    text-align: center;
+    background-color: #bd3a63 !important; /* Set button color to purple with high priority */
+    color: white !important;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+.button-text:hover {
+    background-color: #992b4e !important; /* Darker purple on hover */
+}
+
 </style>
 
 
 
  <div class="sidebar">
-        <a href="https://example.com" class="sidebar-button">Mizuki</a>
-        <a href="https://example.com" class="sidebar-button">Chiyo</a>
-        <a href="https://example.com" class="sidebar-button">Emi</a>
-        <a href="https://example.com" class="sidebar-button">Nory</a>
-        <a href="https://example.com" class="sidebar-button">Rin</a>
-        <a href="https://example.com" class="sidebar-button">Junko</a>
+        <a href = "{{site.baseurl}}/moderation/calico_critter/" class = "sidebar-button">Moderator rules</a>
+        <a href="{{site.baseurl}}/voteforthegoat/calicoworkflow" class="sidebar-button">Workflow diagram</a>
     </div>
 
 <style>
@@ -163,25 +201,25 @@ p {
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Times New Roman", sans-serif;
     line-height: 1.6;
-    background-color: #f9f9f9;
-    color: #333;
+    background-color: #8B3D8A;
+    color: #f9f9f9;
     margin: 0;
 }
 
 .sidebar {
     position: fixed;
     top: 0;
-    right: 75px;
-    height: 300px;
-    width: 100px;
-    background-color: #fff;
-    border: 1px solid #ddd;
+    right: 50px;
+    height: 200px;
+    width: 150px;
+    background-color: #FFDFF7 !important;
+    border: 4px solid #BBDB9B;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-    border-radius: 20px; 
+    border-radius: 20px;
     padding-top: 20px;
-    margin-top: 150px; 
+    margin-top: 150px;
     overflow: hidden;
 }
 
@@ -189,28 +227,28 @@ body {
     display: block;
     padding: 10px 20px;
     text-decoration: none;
-    color: #333;
+    color: #EBA9D9 !important;
     font-weight: bold;
-    transition: background-color 0.3s, color 0.3s;
+    transition: box-shadow 0.3s, color 0.3s, border-radius 0.3s;
 }
 
 .sidebar-button:hover {
-    background-color: #ffb6c1;
-    color: #fff;
+    box-shadow: 0 0 15px 5px #5E8636; 
+    color: #9C5F8C !important;
+    border-radius: 15px; 
 }
 
 a {
-    text-decoration: none;
+    text-decoration: none !important;
 }
 </style>
+
 
 <div>
 <img src="{{site.baseurl}}/images/calicocritters/voteheading.png" alt="Calico Critters Voting header">
 </div>
 
-<a href = "{{site.baseurl}}/moderation/calico_critter/">Moderator rules here!</a>
-<br>
-<a href="{{site.baseurl}}/voteforthegoat/calicoworkflow">See our workflow here!</a>
+
 
 <p class="header-text">Click on a critter below to vote!</p>
 
@@ -360,14 +398,6 @@ a {
     <img id="houseImage" src="" alt="House Image" style="max-width:300px; border-radius:15px;">
 </div>
 
-<div class="comment-section" id="commentSection">
-    <input type="text" id="usernameInput" placeholder="Enter your username" style="width: 80%; padding: 8px; margin-bottom: 5px;">
-    <input type="text" id="commentInput" placeholder="Enter your comment" style="width: 80%; padding: 8px;">
-    <button onclick="addComment();" class="comment-button">Submit</button>
-    <div id="commentList" style="margin-top: 10px;"></div>
-    <button onclick="clearComments();" class="comment-button">Clear All Comments</button>
-</div>
-
 <script>
 let selectedCritter = null;
 let selectedHouse = null;
@@ -439,9 +469,6 @@ function confirmChoice() {
 
     imageBox.style.display = "block"; // Show the image box
 
-    // Optional: Display the comment section after confirmation
-    document.getElementById("commentSection").style.display = "block";
-
     // Remove any existing "Enter House" button before creating a new one
     const existingButtonContainer = document.querySelector('#houseButtonContainer');
     if (existingButtonContainer) {
@@ -462,80 +489,6 @@ function confirmChoice() {
 
     buttonContainer.appendChild(enterHouseButton);
     document.getElementById('imageBox').appendChild(buttonContainer);
-}
-
-// Add a comment to the comment list and store it in local storage
-function addComment() {
-    const usernameInput = document.getElementById('usernameInput');
-    const commentInput = document.getElementById('commentInput');
-
-    if (usernameInput.value.trim() === "" || commentInput.value.trim() === "") {
-        alert("Please enter both a username and a comment.");
-        return;
-    }
-
-    // Include the selected house in the username
-    const fullUsername = `${usernameInput.value.trim()} from ${selectedHouse}`;
-
-    let comments = JSON.parse(localStorage.getItem('comments')) || [];
-
-     const newComment = {
-        username: fullUsername, // Store the modified username
-        text: commentInput.value.trim(),
-        likes: 0, // Initialize the likes count to 0 (no null or undefined)
-        liked: false // Add a liked flag to track the like status
-    };
-
-    comments.push(newComment);
-    localStorage.setItem('comments', JSON.stringify(comments));
-
-    usernameInput.value = '';
-    commentInput.value = '';
-
-    displayComments();
-}
-
-
-// Display the list of comments from local storage
-function displayComments() {
-    const commentList = document.getElementById('commentList');
-    commentList.innerHTML = '';
-
-    let comments = JSON.parse(localStorage.getItem('comments')) || [];
-
-    comments.forEach((comment, index) => {
-        comment.likes = comment.likes || 0;
-
-        const commentItem = document.createElement('div');
-        commentItem.style.marginBottom = '10px';
-        commentItem.style.borderBottom = '1px solid #ddd';
-        commentItem.style.paddingBottom = '5px';
-
-        const header = document.createElement('div');
-        header.style.fontWeight = 'bold';
-        header.textContent = comment.username;
-
-        const textElement = document.createElement('p');
-        textElement.textContent = comment.text;
-
-        // Create Like Button and Display Like Count
-        const likeButton = document.createElement('button');
-        likeButton.textContent = `Like (${comment.likes})`;
-        likeButton.style.marginTop = '5px';
-        likeButton.onclick = function() {
-            likeComment(index); // Pass the index to the like function
-        };
-
-        commentItem.appendChild(header);
-        commentItem.appendChild(textElement);
-        commentItem.appendChild(likeButton);
-        commentList.appendChild(commentItem);
-    });
-}
-
-function clearComments() {
-    localStorage.removeItem('comments'); // Remove comments from local storage
-    displayComments(); // Refresh the comment display
 }
 
 function selectCritter(element) {
@@ -582,9 +535,6 @@ function confirmChoice() {
 
     imageBox.style.display = "block"; // Show the image box
 
-    // Optional: Display the comment section after confirmation
-    document.getElementById("commentSection").style.display = "block";
-
     // Remove any existing "Enter House" button before creating a new one
     const existingButtonContainer = document.querySelector('#houseButtonContainer');
     if (existingButtonContainer) {
@@ -606,8 +556,4 @@ function confirmChoice() {
     buttonContainer.appendChild(enterHouseButton);
     document.getElementById('imageBox').appendChild(buttonContainer);
 }
-
-// Display comments on page load
-window.onload = displayComments;
-
 </script>

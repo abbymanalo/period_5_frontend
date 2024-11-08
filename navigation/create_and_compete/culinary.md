@@ -302,7 +302,7 @@ author: Daksha, Zach, Alex, Darsh
 }
 </style>
 
-<a href="http://127.0.0.1:4887/flocker_frontend/create_and_compete/culinaryposts">
+<a href="{{site.baseurl}}/create_and_compete/culinaryposts">
   <button class="culinary-posts-btn">Culinary Posts</button>
 </a>
 

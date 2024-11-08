@@ -257,6 +257,33 @@ Our group has chosen to focus on discussions about which drinks should be added 
         #closeModal:hover {
             background-color: #00e6ff;
         }
+        /* Results Section Styling */
+        .results-section {
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+        }
+        .results-chart {
+            margin: 20px 0;
+        }
+        .beverage-result {
+            margin: 10px 0;
+        }
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.2);
+            height: 25px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            transition: width 0.5s ease;
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+        }
     </style>
         <!-- Community Guidelines Modal -->
     <div id="guidelinesModal" class="modal">
@@ -311,17 +338,18 @@ Our group has chosen to focus on discussions about which drinks should be added 
 </style>
 </head>
     <div class="voting-container">
-        <h2>Choose Your Beverage that you would like to be added to Del Norte Cafeteria</h2>
+        <h2>Del Norte Cafeteria Beverage Options</h2>
+        
+        <!-- Voting Section -->
         <div class="voting-layout">
             <div class="options-container">
+                <h3>Vote for a Beverage</h3>
                 <button class="option-button" onclick="selectOption('Coke')">Coke</button>
                 <button class="option-button" onclick="selectOption('Gatorade')">Gatorade</button>
-                <button class="option-button" onclick="selectOption('Banana milk')">Banana milk</button>
-                <button class="option-button" onclick="selectOption('Coconut water')">Coconut water</button>
+                <button class="option-button" onclick="selectOption('Slushie')">Slushie</button>
+                <button class="option-button" onclick="selectOption('Sparkling water')">Sparkling water</button>
                 <div class="selected-option" id="selectedOption">Your Choice: None</div>
                 <button class="submit-button" onclick="submitVote()">Submit Vote</button>
-                <input type="text" id="suggestionInput" placeholder="Suggest a new beverage" style="margin-top: 20px; padding: 10px; border-radius: 8px; border: 1px solid #00c6ff; background: rgba(255, 255, 255, 0.2); color: #ffffff; font-size: 16px; outline: none;">
-                <button class="submit-button" onclick="submitSuggestion()">Submit Suggestion</button>
             </div>
             <div class="details-container">
                 <div id="coke-details" class="beverage-details">
@@ -332,21 +360,39 @@ Our group has chosen to focus on discussions about which drinks should be added 
                     <img src="https://www.kroger.com/product/images/large/right/0005200012324" alt="Gatorade">
                     <p>Ingredients: Water, Sugar, Dextrose, Citric Acid, Natural and Artificial Flavor, Salt, Sodium Citrate, Monopotassium Phosphate, Modified Food Starch, Red 40</p>
                 </div>
-                <div id="banana-milk-details" class="beverage-details">
-                    <img src="https://m.media-amazon.com/images/I/6177MtlTnkL.jpg" alt="Banana Milk">
-                    <p>Ingredients: Milk, Banana Puree, Sugar, Natural Flavors, Vitamins A & D</p>
+                <div id="slushie-details" class="beverage-details">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcKttWx6W8_lfSWn8x7b7Yi1yByHLRYpiARA&s" alt="Slushie">
+                    <p>Ingredients: Water, High Fructose Corn Syrup, Natural and Artificial Flavors, Citric Acid, Food Coloring</p>
                 </div>
-                <div id="coconut-water-details" class="beverage-details">
-                    <img src="https://pics.walgreens.com/prodimg/476175/450.jpg" alt="Coconut Water">
-                    <p>Ingredients: 100% Natural Coconut Water, No Added Sugar or Preservatives</p>
+                <div id="sparkling-water-details" class="beverage-details">
+                    <img src="https://m.media-amazon.com/images/I/81NJpYOskkL.jpg" alt="Sparkling Water">
+                    <p>Ingredients: Carbonated Water, Natural Flavors</p>
                 </div>
             </div>
         </div>
-        <!-- Reasoning Input Container -->
+
+        <!-- Reasoning Container -->
         <div class="reasoning-container" id="reasoningContainer">
             <h3>Why did you choose this beverage?</h3>
             <textarea id="reasoningText" placeholder="Enter your reasoning here..."></textarea>
             <button class="reasoning-submit" onclick="submitReasoning()">Submit Reasoning</button>
+        </div>
+
+        <!-- New Separate Suggestion Section -->
+        <div class="suggestion-section" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.2);">
+            <h3>Suggest a New Beverage</h3>
+            <p style="margin-bottom: 15px; font-size: 14px;">Don't see your preferred drink? Suggest it below!</p>
+            <input type="text" id="suggestionInput" placeholder="Enter your beverage suggestion" style="margin-bottom: 10px; padding: 10px; border-radius: 8px; border: 1px solid #00c6ff; background: rgba(255, 255, 255, 0.2); color: #ffffff; font-size: 16px; outline: none; width: 100%; max-width: 300px;">
+            <button class="submit-button" onclick="submitSuggestion()">Submit Suggestion</button>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-section">
+            <h3>Current Results</h3>
+            <div id="votingResults" class="results-chart">
+                <!-- Results will be populated here -->
+            </div>
+            <button class="submit-button" onclick="refreshResults()">Refresh Results</button>
         </div>
     </div>
     <script>
@@ -392,6 +438,7 @@ Our group has chosen to focus on discussions about which drinks should be added 
                     // Hide the reasoning input section after submission
                     document.getElementById('reasoningContainer').style.display = 'none';
                     document.getElementById('reasoningText').value = ''; // Clear the text area
+                    refreshResults(); // Refresh results after successful vote
                 })
                 .catch(error => {
                     console.error('Error:', error);
@@ -438,6 +485,44 @@ Our group has chosen to focus on discussions about which drinks should be added 
                     console.error('Error:', error);
                 });
         }
+        function refreshResults() {
+            fetch('http://127.0.0.1:8887/api/results')
+                .then(response => response.json())
+                .then(data => {
+                    displayResults(data);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error fetching results. Please try again.');
+                });
+        }
+
+        function displayResults(data) {
+            const resultsContainer = document.getElementById('votingResults');
+            resultsContainer.innerHTML = ''; // Clear existing results
+
+            // Calculate total votes for percentage
+            const totalVotes = Object.values(data).reduce((a, b) => a + b, 0);
+
+            // Create bar for each beverage
+            for (const [beverage, votes] of Object.entries(data)) {
+                const percentage = (votes / totalVotes * 100).toFixed(1);
+                
+                const beverageResult = document.createElement('div');
+                beverageResult.className = 'beverage-result';
+                beverageResult.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                        <span>${beverage}</span>
+                        <span>${votes} votes (${percentage}%)</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: ${percentage}%"></div>
+                    </div>
+                `;
+                resultsContainer.appendChild(beverageResult);
+            }
+        }
+
         document.addEventListener("DOMContentLoaded", function() {
             const modal = document.getElementById("guidelinesModal");
             const closeModal = document.getElementById("closeModal");
@@ -447,6 +532,9 @@ Our group has chosen to focus on discussions about which drinks should be added 
             closeModal.onclick = function() {
                 modal.style.display = "none";
             }
+
+            // Load initial results
+            refreshResults();
         });
     </script>
 </html>

@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Internet debates
-description: internet debates
+title: Internet Debates
+description: internet Debates
 permalink: /voteforthegoat/internetdebates
 menu: nav/vote_for_the_goat.html
 comments: true
@@ -15,6 +15,11 @@ comments: true
     <button class="debate-btn" data-debate="Pineapple on Pizza?" data-channel-id="19">Pineapple on Pizza?</button>
     <button class="debate-btn" data-debate="Cats or Dogs?" data-channel-id="20">Cats or Dogs?</button>
     <button class="debate-btn" data-debate="Coffee or Tea?" data-channel-id="21">Coffee or Tea?</button>
+</div>
+<div class="rulebar">
+    <a href="{{site.baseurl}}/voteforthegoat/internetdebatesrules">
+        <button class="rule-btn">Rules</button>
+    </a>
 </div>
 
 <div id="rules-popup" class="modal">
@@ -62,12 +67,23 @@ comments: true
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         position: fixed;
-        top: 100px; 
+        top: 50px; 
         left: 20px;
     }
 
     .sidebar h3 {
         color: #00e5ff;
+    }
+    .rulebar {
+        width: 200px;
+        height: 80px;
+        background: #000000;
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        position: fixed;
+        top: 650px; 
+        left: 20px;
     }
 
     .debate-btn {
@@ -82,13 +98,26 @@ comments: true
         transition: background 0.3s ease;
     }
 
+    .rule-btn {
+        display: block;
+        background: #00e5ff;
+        color: #fff;
+        width:166px;
+        padding: 0.5rem;
+        margin: 0.5rem 0;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
     .debate-btn:hover {
         background: #0099cc;
     }
 
     body {
         font-family: 'Roboto', sans-serif;
-        background: linear-gradient(to right, #05aff7, #4b1f30);
+        background: linear-gradient(to right, #013b54, #4b1f30);
         color: #fff;
         margin: 0; /* Remove default margin */
         min-height: 100vh; /* Ensure the body takes full height */

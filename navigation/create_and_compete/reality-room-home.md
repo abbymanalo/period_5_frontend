@@ -97,6 +97,7 @@ author: Yash, Nikhil, Rohan, Neil
         <div id="channels"></div>
     <div>
 </div>
+<div id="imageTest"></div>
 
 <style>
     /* Sidebar */
@@ -312,6 +313,53 @@ author: Yash, Nikhil, Rohan, Neil
 </style>
 
 <script type="module">
+    // this is for the images
+    // import { pythonURI, fetchOptions } from '../assets/js/api/config.js';
+    // const fileInput = document.getElementById('fileInput');
+    // const file = fileInput.files[0];
+    // if (file) {
+    //     const reader = new FileReader();
+    //     reader.onload = function() {
+    //         const imageTest = document.getElementById('imageTest');
+    //         imageTest.innerHTML = `<img src="${reader.result}" alt="Profile Picture">`;
+    //     };
+    //     reader.readAsDataURL(file);
+    // }
+
+
+
+
+    // async function sendProfilePicture(base64String) {
+    // const URL = pythonURI + "/api/id/pfp";
+
+    // const options = {
+    //     URL,
+    //     body: { pfp: base64String },
+    //     message: 'profile-message',
+    //     callback: () => {
+    //         console.log('Profile picture uploaded successfully!');
+    //     }
+    // };
+
+    // try {
+    //     await putUpdate(options);
+    // } catch (error) {
+    //     console.error('Error uploading profile picture:', error.message);
+    //     document.getElementById('profile-message').textContent = 'Error uploading profile picture: ' + error.message;
+    // }
+    // }
+
+    // async function convertToBase64(file) {
+    //     return new Promise((resolve, reject) => {
+    //         const reader = new FileReader();
+    //         reader.onload = () => resolve(reader.result.split(',')[1]); // Remove the prefix part of the result
+    //         reader.onerror = error => reject(error);
+    //         reader.readAsDataURL(file);
+    //     });
+    // }
+</script>
+
+<script type="module">
     import { pythonURI, fetchOptions } from '../assets/js/api/config.js';
     const container = document.getElementById("channels");
 
@@ -358,6 +406,9 @@ author: Yash, Nikhil, Rohan, Neil
                 const title = document.createElement("h3");
                 title.classList.add("card-title");
                 title.textContent = channel.name;
+
+                // const imageBox = document.createElement("div");
+                // title.classList.add("image-box");
 
                 const description = document.createElement("p");
                 description.classList.add("card-description");

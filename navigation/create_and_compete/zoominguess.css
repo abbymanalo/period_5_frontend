@@ -1,10 +1,10 @@
 /* Full-Page Background with Strong Glowing Effect */
 body {
-    background: linear-gradient(135deg, #1254f0, hsla(277, 87%, 54%, 0.632), #0ee070, #5a67d8); /* Vibrant gradient colors */
+    background: linear-gradient(135deg, #1254f0, hsla(277, 87%, 54%, 0.632), #0ee070, #5a67d8);
     background-size: 400% 400%;
-    animation: glowingBackground 20s ease infinite; /* Slower animation for a smoother effect */
+    animation: glowingBackground 20s ease infinite;
     font-family: Arial, sans-serif;
-    color: #fff; /* Light text color for contrast */
+    color: #fff;
 }
 
 /* Glowing Animation for Background */
@@ -18,23 +18,32 @@ body {
 .zoomnguess-container {
     width: 80%;
     max-width: 600px;
-    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+    background-color: rgba(255, 255, 255, 0.9);
     border: 2px solid #007BFF;
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0px 4px 15px rgba(0, 123, 255, 0.5); /* Blue glow */
+    box-shadow: 0px 4px 15px rgba(0, 123, 255, 0.5);
     margin: 20px auto;
     text-align: center;
-    color: #007BFF; /* Text color to contrast with light background */
+    color: #007BFF;
 }
 
 h1, h2 {
-    color: #007BFF; /* Standout color for headings */
-    text-shadow: 0 0 8px rgba(0, 123, 255, 0.6); /* Blue glow for headings */
+    color: #007BFF;
+    text-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
 }
 
 p, label, .info-box, .leaderboard-box li {
-    color: #333; /* Dark color for main text content */
+    color: #333;
+}
+
+/* Image of the Day Text */
+.image-of-day-text {
+    font-size: 2em;
+    color: rgb(28, 44, 218);
+    margin-bottom: 15px;
+    text-align: center;
+    color: #007BFF;
 }
 
 /* Zoom Image Display Section */
@@ -49,17 +58,13 @@ p, label, .info-box, .leaderboard-box li {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 200px;
+    height: 265px;
     background-color: #f9f9f9;
-    box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.3); /* Soft blue glow */
+    box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.3);
 }
 
-.zoom-image {
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: 5px;
-    box-shadow: 0px 4px 8px rgba(0, 123, 255, 0.5);
-}
+/* Additional styles omitted for brevity */
+
 
 /* Guess Input Box */
 .guess-box {
@@ -151,6 +156,27 @@ p, label, .info-box, .leaderboard-box li {
    transform: scale(1.03);
    box-shadow: 0px 6px 12px rgba(0, 123, 255, 0.6);
 }
+
+/* Comment Button */
+.Comment-button {
+    width: 100%;
+    background-color: #007BFF;
+    color: #ffffff;
+    font-size: 18px;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s ease;
+    margin-top: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.5);
+ }
+ 
+ .Comment-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.03);
+    box-shadow: 0px 6px 12px rgba(0, 123, 255, 0.6);
+ }
 
 /* Feedback Section */
 #feedback-section {

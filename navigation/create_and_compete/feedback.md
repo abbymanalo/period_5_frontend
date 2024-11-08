@@ -37,12 +37,9 @@ menu: nav/create_and_compete.html
     <div class="chat-input">
         <input type="text" id="chat-message" placeholder="Type your message here...">
         <button id="send-message" class="send-button">Send</button>
+        <button id="clear-chat" class="send-button">Clear Chat</button>
     </div>
 </div>
-
-<link rel="stylesheet" href="feeback.css">
-<script src="chat.js"></script>
-
 
 <script src="{{site.baseurl}}/navigation/create_and_compete/chat.js"></script>
 
