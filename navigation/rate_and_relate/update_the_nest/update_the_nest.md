@@ -41,6 +41,7 @@ menu: nav/rate_and_relate.html
 .feed {
     border: 10px solid black;
     border-radius: 50px;
+    border-color: #F5E1E7;
     background-color: pink;
     text-align: center;
     padding: 100px 0 3px 0;
@@ -51,6 +52,7 @@ menu: nav/rate_and_relate.html
 .header {
         border: 10px solid black;
         border-radius: 50px;
+        border-color: #F5E1E7;
         background-color: pink;
         text-align: center;
         padding: 5px 0 3px 0;
@@ -111,7 +113,7 @@ menu: nav/rate_and_relate.html
     top: 50%;                   /* Center vertically */
     left: 50%;                  /* Center horizontally */
     transform: translate(-50%, -50%); /* Adjust back by half of div’s size */
-    background-color: lightblue;
+    background-color:  #FBC3C3;
     padding: 20px;
     border: 1px solid #ccc;
     visibility: hidden;         /* Hidden initially */
