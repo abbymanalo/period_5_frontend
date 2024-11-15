@@ -2,10 +2,10 @@ import { pythonURI, fetchOptions } from "./api/config.js";
 
 async function generateImage(int) {
     try {
-        const postApiUrl = `${pythonURI}/api/id/nestImg`
+        const postApiUrl = `${pythonURI}/api/id/nestImgFetch`
         const postApiRequest = await fetch(postApiUrl, {
             ...fetchOptions,
-            method: 'post',
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -26,7 +26,7 @@ async function generateImage(int) {
 // Function to create an image post with caption and user/date info
 export async function createImagePost(postObj) {
     // Destructure the object to extract necessary details
-    const imageData = await generateImage(1)
+    const imageData = await generateImage(postObj.id)
     const imageUrl = imageData.postImg
     console.log(imageUrl)
     const caption = postObj.title;

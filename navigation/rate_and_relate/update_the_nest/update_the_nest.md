@@ -232,6 +232,8 @@ menu: nav/rate_and_relate.html
         context.drawImage(video, 0, 0, canvas.width, canvas.height);
         // imageData variable is set to the canvas current urt
         const imageData = canvas.toDataURL('image/png');
+        const imageDataClean = imageData.replace(/^data:image\/png;base64,/, '');
+        console.log(imageDataClean)
         // Sets the image element to the canvas image.
         photo.setAttribute('src', imageData);
         currentStream.getTracks().forEach(track => track.stop());
@@ -284,7 +286,7 @@ menu: nav/rate_and_relate.html
             mySecondDiv.style.display = "none";
             document.body.style.overflow = "visible";
     }};
-</script>  
+</script>
 
 <script type="module">
 import { createImagePost } from '{{site.baseurl}}/assets/js/createRateAndRelateFeedList.js';
@@ -323,23 +325,33 @@ async function generatePosts() {
         console.error('Error fetching data:', error);
     }
 }
-// 
-// async function sendPosts() {
-//     try {
-//         
-// 
-//         const postApiRequest = await fetch(PostApiUrl, {
-//             ...fetchOptions,
-//             method: 'post',
-//             headers: {
-//                 'Content-Type': 'application/json'
-//             },
-//             body: JSON.stringify()
-//         })
-//         if (!postApiRequest.ok) {
-//             throw new Error('Failed to fetch image API source: ' + postApiRequest.statusText);
-//         }
-//     }
-// }
+
+// Create post in database
+
+
+async function sendPosts() {
+    const text = document.getElementById("textInput").value
+    const canvas = document.getElementById('canvas');
+    const imageData = canvas.toDataURL('image/png')
+    const imageDataClean = imageData.replace(/^data:image\/png;base64,/, '');
+    try {
+        const postApiRequest = await fetch(`${postApiUrl}/api/id/nestImg`, {
+            ...fetchOptions,
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(
+                {"file_name": file_name, "nestImg": imageData}
+            )
+        })
+        if (!postApiRequest.ok) {
+            throw new Error('Failed to fetch image API source: ' + postApiRequest.statusText);
+        }
+    }
+    catch {
+        
+    }
+}
 generatePosts()
 </script>
