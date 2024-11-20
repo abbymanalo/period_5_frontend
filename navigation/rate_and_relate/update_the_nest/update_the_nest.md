@@ -152,8 +152,8 @@ menu: nav/rate_and_relate.html
     <text class="content-div"></text>
     <label for="textInput">Enter caption:</label>
     <input type="text" id="textInput" placeholder="Type something...">
-    <button class="post-button">post</button>
-    <button class="exit-button" onclick="closeDiv()">x</button>
+    <button class="post-button" id="post-button">post</button>
+    <button class="exit-button" onclick="closeDiv();">x</button>
 </div>
 
 <div class="upload_media" id="mediaUploader">
@@ -232,11 +232,8 @@ menu: nav/rate_and_relate.html
         const context = canvas.getContext('2d');
         // Creates the image, with a width and height equal to the canvas
         context.drawImage(video, 0, 0, canvas.width, canvas.height);
-        // imageData variable is set to the canvas current urt
-        const imageData = canvas.toDataURL('image/png');
-        const imageDataClean = imageData.replace(/^data:image\/png;base64,/, '');
-        console.log(imageDataClean)
         // Sets the image element to the canvas image.
+        const imageData = canvas.toDataURL('image/png');
         photo.setAttribute('src', imageData);
         currentStream.getTracks().forEach(track => track.stop());
     };
@@ -329,13 +326,17 @@ async function generatePosts() {
 }
 
 // Create post in database
+const postButton = document.getElementById("post-button");
 
-
-async function sendPosts() {
-    const text = document.getElementById("textInput").value
+postButton.addEventListener("click", async () => { // ChatGPT created this arrow function
+    // Creates a image source based off the most recent image
     const canvas = document.getElementById('canvas');
-    const imageData = canvas.toDataURL('image/png')
+    const imageData = canvas.toDataURL('image/png');
     const imageDataClean = imageData.replace(/^data:image\/png;base64,/, '');
+    // Sets the text and the name of the file for the text equal to the text
+    const text = document.getElementById("textInput").value;
+    const file_name = text;
+    // Send image information to the server to be stored
     try {
         const postApiRequest = await fetch(`${postApiUrl}/api/id/nestImg`, {
             ...fetchOptions,
@@ -344,16 +345,76 @@ async function sendPosts() {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(
-                {"file_name": file_name, "nestImg": imageData}
+                {"file_name": file_name, "nestImg": imageDataClean}
             )
-        })
+        });
         if (!postApiRequest.ok) {
             throw new Error('Failed to fetch image API source: ' + postApiRequest.statusText);
         }
+    } catch (error) {
+    console.error("Error occurred:", error);
     }
-    catch {
-        
+
+    // Send post information to the table to be stored
+    try {
+        const postApiRequest = await fetch(`${postApiUrl}/api/nestPost`, {
+            ...fetchOptions,
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(
+                {"title": text, "content": "This is not gonna be shown", "imageurl": file_name + ".png"}
+            )
+        });
+    } catch (error) {
+        console.error("Error occurred:", error);
     }
-}
+});
+
+// async function sendPosts() {
+//     // Creates a image source based off the most recent image
+//     const canvas = document.getElementById('canvas');
+//     const imageData = canvas.toDataURL('image/png');
+//     const imageDataClean = imageData.replace(/^data:image\/png;base64,/, '');
+//     // Sets the text and the name of the file for the text equal to the text
+//     const text = document.getElementById("textInput").value;
+//     const file_name = text;
+//     // Send image information to the server to be stored
+//     try {
+//         const postApiRequest = await fetch(`${postApiUrl}/api/id/nestImg`, {
+//             ...fetchOptions,
+//             method: 'post',
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             },
+//             body: JSON.stringify(
+//                 {"file_name": file_name, "nestImg": imageData}
+//             )
+//         })
+//         if (!postApiRequest.ok) {
+//             throw new Error('Failed to fetch image API source: ' + postApiRequest.statusText);
+//         }
+//     }
+//     catch {
+//         console.log("you fucked up")
+//     }
+//     // Send post information to the table to be stored
+//     try {
+//         const postApiRequest = await fetch(`${postApiUrl}/api/nestPost`, {
+//             ...fetchOptions,
+//             method: 'post',
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             },
+//             body: JSON.stringify(
+//                 {"title": text, "content": "This is not gonna be shown", "imageurl": file_name + ".png"}
+//             )
+//         })
+//     } catch {
+//         console.log("you fucked up with sending the posts")
+//     }
+// }
+
 generatePosts()
 </script>
