@@ -28,7 +28,6 @@ export async function createImagePost(postObj) {
     // Destructure the object to extract necessary details
     const imageData = await generateImage(postObj.id)
     const imageUrl = imageData.postImg
-    console.log(imageUrl)
     const caption = postObj.title;
     const user = postObj.user_name;
     const datePosted = "10/10/10";
