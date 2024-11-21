@@ -329,30 +329,32 @@ async function generatePosts() {
 const postButton = document.getElementById("post-button");
 
 postButton.addEventListener("click", async () => { // ChatGPT created this arrow function
+    // Checks the current date
+    const currentDate = new Date().toLocaleString().replace(/\//g, '')
+                                                    .replace(/:/g, '')
+                                                    .replace(/,/g, '')    // Remove commas
+                                                    .replace(/\s/g, '');   // Remove spaces
     // Creates a image source based off the most recent image
     const canvas = document.getElementById('canvas');
     const imageData = canvas.toDataURL('image/png');
     const imageDataClean = imageData.replace(/^data:image\/png;base64,/, '');
-    console.log(imageDataClean);
     // Sets the text and the name of the file for the text equal to the text
     const text = document.getElementById("textInput").value;
-    console.log(text)
-    const file_name = text + ".png";
-    console.log(file_name)
+    const file_name = currentDate + ".png";
     // Send image information to the server to be stored
     try {
         const postApiRequest = await fetch(`${pythonURI}/api/id/nestImg`, {
             ...fetchOptions,
             method: 'post',
             body: JSON.stringify(
-                {"file_name": text, "nestImg": imageDataClean}
+                {"file_name": currentDate, "nestImg": imageDataClean}
             )
         });
         if (!postApiRequest.ok) {
             throw new Error('Failed to fetch image API source: ' + postApiRequest.statusText);
         }
     } catch (error) {
-    console.error("Error occurred:", error);
+        console.error("Error occurred:", error);
     }
 
     // Send post information to the table to be stored
@@ -367,51 +369,12 @@ postButton.addEventListener("click", async () => { // ChatGPT created this arrow
     } catch (error) {
         console.error("Error occurred:", error);
     }
+    // Empty post feed list, currently f's up styling but it's not my problem anymore
+    const myNode = document.getElementById("feedContainer")
+    while (myNode.firstChild) {
+        myNode.lastChild.remove();
+    }
+    generatePosts();
 });
-
-// async function sendPosts() {
-//     // Creates a image source based off the most recent image
-//     const canvas = document.getElementById('canvas');
-//     const imageData = canvas.toDataURL('image/png');
-//     const imageDataClean = imageData.replace(/^data:image\/png;base64,/, '');
-//     // Sets the text and the name of the file for the text equal to the text
-//     const text = document.getElementById("textInput").value;
-//     const file_name = text;
-//     // Send image information to the server to be stored
-//     try {
-//         const postApiRequest = await fetch(`${postApiUrl}/api/id/nestImg`, {
-//             ...fetchOptions,
-//             method: 'post',
-//             headers: {
-//                 'Content-Type': 'application/json'
-//             },
-//             body: JSON.stringify(
-//                 {"file_name": file_name, "nestImg": imageData}
-//             )
-//         })
-//         if (!postApiRequest.ok) {
-//             throw new Error('Failed to fetch image API source: ' + postApiRequest.statusText);
-//         }
-//     }
-//     catch {
-//         console.log("you fucked up")
-//     }
-//     // Send post information to the table to be stored
-//     try {
-//         const postApiRequest = await fetch(`${postApiUrl}/api/nestPost`, {
-//             ...fetchOptions,
-//             method: 'post',
-//             headers: {
-//                 'Content-Type': 'application/json'
-//             },
-//             body: JSON.stringify(
-//                 {"title": text, "content": "This is not gonna be shown", "imageurl": file_name + ".png"}
-//             )
-//         })
-//     } catch {
-//         console.log("you fucked up with sending the posts")
-//     }
-// }
-
 generatePosts()
 </script>
