@@ -333,19 +333,19 @@ postButton.addEventListener("click", async () => { // ChatGPT created this arrow
     const canvas = document.getElementById('canvas');
     const imageData = canvas.toDataURL('image/png');
     const imageDataClean = imageData.replace(/^data:image\/png;base64,/, '');
+    console.log(imageDataClean);
     // Sets the text and the name of the file for the text equal to the text
     const text = document.getElementById("textInput").value;
-    const file_name = text;
+    console.log(text)
+    const file_name = text + ".png";
+    console.log(file_name)
     // Send image information to the server to be stored
     try {
-        const postApiRequest = await fetch(`${postApiUrl}/api/id/nestImg`, {
+        const postApiRequest = await fetch(`${pythonURI}/api/id/nestImg`, {
             ...fetchOptions,
             method: 'post',
-            headers: {
-                'Content-Type': 'application/json'
-            },
             body: JSON.stringify(
-                {"file_name": file_name, "nestImg": imageDataClean}
+                {"file_name": text, "nestImg": imageDataClean}
             )
         });
         if (!postApiRequest.ok) {
@@ -357,14 +357,11 @@ postButton.addEventListener("click", async () => { // ChatGPT created this arrow
 
     // Send post information to the table to be stored
     try {
-        const postApiRequest = await fetch(`${postApiUrl}/api/nestPost`, {
+        const postApiRequest = await fetch(`${pythonURI}/api/nestPost`, {
             ...fetchOptions,
             method: 'post',
-            headers: {
-                'Content-Type': 'application/json'
-            },
             body: JSON.stringify(
-                {"title": text, "content": "This is not gonna be shown", "imageurl": file_name + ".png"}
+                {"title": text, "content": "This is not gonna be shown", "group_id": "group_id", "image_url": file_name}
             )
         });
     } catch (error) {

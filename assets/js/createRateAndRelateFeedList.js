@@ -6,9 +6,6 @@ async function generateImage(int) {
         const postApiRequest = await fetch(postApiUrl, {
             ...fetchOptions,
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
             body: JSON.stringify({"imageID": int})
         });
 
